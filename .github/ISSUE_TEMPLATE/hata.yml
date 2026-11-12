@@ -1,0 +1,21 @@
+name: Hata bildirimi / Bug report
+description: Skill ya da analiz aracı beklenmedik biçimde davrandı.
+title: "[Hata] "
+labels: ["hata"]
+body:
+  - type: textarea
+    id: ne-oldu
+    attributes:
+      label: Ne oldu, ne bekliyordunuz?
+    validations:
+      required: true
+  - type: textarea
+    id: adimlar
+    attributes:
+      label: Yeniden üretme adımları
+      description: Komut, girdi metni (kısaltılmış, kişisel bilgi olmadan) ve çıktı.
+  - type: input
+    id: ortam
+    attributes:
+      label: Ortam
+      placeholder: "ör. Claude Code 2.1.314, macOS, Python 3.12"

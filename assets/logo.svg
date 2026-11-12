@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="t">
+  <title id="t">Turkish AI Humanizer</title>
+  <rect width="512" height="512" rx="116" fill="#15171F"/>
+  <!-- Noktasız ı: makinenin imleci -->
+  <rect x="219" y="212" width="74" height="220" rx="37" fill="#F5F0E6"/>
+  <!-- İnsan dokunuşu: ı'yı i yapan nokta -->
+  <circle cx="256" cy="130" r="46" fill="#E8553A"/>
+</svg>

@@ -1,0 +1,22 @@
+name: Yanlış alarm / False positive
+description: Analiz aracı doğal bir Türkçe cümleyi yapay zekâ kalıbı olarak işaretledi.
+title: "[Yanlış alarm] "
+labels: ["yanlış alarm"]
+body:
+  - type: textarea
+    id: cumle
+    attributes:
+      label: Cümle
+      description: İşaretlenen cümle. Kişisel bilgi içermesin.
+    validations:
+      required: true
+  - type: input
+    id: kalip-id
+    attributes:
+      label: Kalıp kimliği
+      description: Raporda görünen kimlik, ör. ceviri_rol_oyna. JSON çıktısındaki "id" alanı.
+  - type: textarea
+    id: neden
+    attributes:
+      label: Neden doğal?
+      description: Bu kullanımın neden kalıp olmadığını kısaca anlatın.

@@ -1,0 +1,13 @@
+{
+  "name": "turkish-ai-humanizer",
+  "description": "Türkçe AI humanizer: yapay zekâ metinlerini anlamı koruyarak doğal Türkçeyle yeniden yazar. Turkish AI humanizer skill with a built-in analyzer.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Mustafa Kürşad BAŞER",
+    "url": "https://github.com/mustafakbaser"
+  },
+  "homepage": "https://github.com/mustafakbaser/turkish-ai-humanizer",
+  "repository": "https://github.com/mustafakbaser/turkish-ai-humanizer",
+  "license": "MIT",
+  "keywords": ["humanizer", "ai-humanizer", "turkish", "turkce", "writing", "claude-skill"]
+}

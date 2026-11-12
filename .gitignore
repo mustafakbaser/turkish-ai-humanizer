@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Paket çıktısı
+dist/
+
+# Sistem ve editör
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Yerel Claude Code oturum dosyaları
+.claude/

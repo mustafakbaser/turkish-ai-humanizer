@@ -1,0 +1,1 @@
+Yağmur şehrin sokaklarını kaplıyordu. Elif pencerenin önünde durmuş, geçmişin anıları arasında kaybolup gitmişti. Her damla ona annesiyle geçirdiği o anları hatırlatıyordu. İçi burkuluyordu. Yine de bir yanı hâlâ umutluydu.

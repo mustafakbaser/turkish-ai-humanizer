@@ -1,0 +1,15 @@
+{
+  "name": "turkish-ai-humanizer",
+  "owner": {
+    "name": "Mustafa Kürşad BAŞER",
+    "url": "https://github.com/mustafakbaser"
+  },
+  "description": "Türkçe AI humanizer skill'i için Claude Code eklenti pazarı.",
+  "plugins": [
+    {
+      "name": "turkish-ai-humanizer",
+      "source": "./",
+      "description": "Yapay zekâ Türkçesini anlamı koruyarak doğal Türkçeyle yeniden yazar."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Merkez Bankasının faiz kararı piyasalarda büyük yankı uyandırdı. Ekonomistler kararın enflasyonla mücadelede belirleyici olacağını söyledi. Bazı uzmanlar ise kararın büyümeyi olumsuz etkileyebileceği konusunda uyardı. Karar, yatırımcıların bundan sonraki adımlara dair beklentilerini de büyük ölçüde belirleyecek gibi görünüyor.

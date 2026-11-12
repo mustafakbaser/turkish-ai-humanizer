@@ -1,0 +1,1090 @@
+{
+  "surum": "1.0.0",
+  "aciklama": "Türkçe yapay zekâ metinlerinde sık görülen kalıplar. Desenler Türkçe küçük harfe çevrilmiş (I→ı, İ→i) metin üzerinde, çok satırlı kipte çalışır. Her kalıbın 'ornek' alanı testlerde desenle eşleşmek zorundadır.",
+  "kategoriler": {
+    "asistan": "Sohbet asistanından kalan izler: selamlama, yardım teklifi, 'bu yazıda ele alacağız' tipi duyurular.",
+    "sablon": "Şablon giriş ve kapanışlar: 'günümüzde', 'hızla değişen dünyada', 'sonuç olarak'.",
+    "ceviri": "İngilizceden birebir aktarılmış söyleyişler (calque): 'önemli bir rol oynamak', 'değer katmak', 'içgörü'.",
+    "abarti": "İçi boş değerlendirme sıfatları: 'eşsiz', 'benzersiz', 'paha biçilmez'.",
+    "dolgu": "Anlama bir şey katmayan vurgu ve kaçamak sözleri: 'gerçekten de', 'adeta', 'önemli ölçüde'.",
+    "gecis": "Bürokratik geçiş ifadeleri: 'bu bağlamda', 'bunun yanı sıra', 'söz konusu'.",
+    "retorik": "Hazır retorik kalıplar: 'sadece X değil, aynı zamanda Y', 'asıl mesele şudur:', 'Sonuç mu? Kaos.'",
+    "burokratik": "Ağır ad-fiil ve destek fiil yapıları: 'analiz gerçekleştirmek', 'avantaj sunmak', 'bulunmaktadır'."
+  },
+  "kaliplar": [
+    {
+      "id": "asistan_onay_acilis",
+      "kategori": "asistan",
+      "agirlik": 3,
+      "desen": "\\A\\s*(elbette|tabii ki|tabii|memnuniyetle)\\s*[!.:]|^\\s*(harika bir soru|çok güzel bir soru)\\s*[!,.:]",
+      "aciklama": "Metnin en başındaki sohbet onayı. 'Elbette, ...' (virgüllü) TDK'ya uygun doğal kullanımdır ve kapsam dışıdır.",
+      "oneri": "Satırı tamamen sil, metin doğrudan konuyla başlasın.",
+      "ornek": "Elbette! İşte istediğin metin."
+    },
+    {
+      "id": "asistan_yardim_umut",
+      "kategori": "asistan",
+      "agirlik": 3,
+      "desen": "umarım\\b[^.!?\\n]{0,40}?\\b(yardımcı olur|faydalı olur|yararlı olur|işinize yarar|işine yarar|yardımcı olmuştur|faydalı olmuştur)",
+      "aciklama": "Asistan kapanışı.",
+      "oneri": "Sil. Gerçek bir yazar okura 'umarım işinize yarar' diye veda etmez.",
+      "ornek": "Umarım bu bilgiler işinize yarar."
+    },
+    {
+      "id": "asistan_baska_soru",
+      "kategori": "asistan",
+      "agirlik": 3,
+      "desen": "başka (bir )?(sorunuz|sorun|sorunuzun|yardıma ihtiyacınız|bir şeye ihtiyacınız)\\w*",
+      "aciklama": "Asistan kapanışı.",
+      "oneri": "Sil. Gerekirse bağlama özgü tek bir cümle yaz.",
+      "ornek": "Başka bir sorunuz olursa yazabilirsiniz."
+    },
+    {
+      "id": "asistan_cekinmeyin",
+      "kategori": "asistan",
+      "agirlik": 3,
+      "desen": "(benimle |bizimle )?(iletişime geçmekten|sormaktan|yazmaktan|ulaşmaktan) çekinme\\w*",
+      "aciklama": "'Don't hesitate to contact' kalıbının çevirisi.",
+      "oneri": "Sil ya da bağlama uygun tek bir cümle kur: 'Sorunuz olursa yazın.', 'Takıldığınız yer olursa haber verin.', 'Aklınıza takılan olursa arayabilirsiniz.'",
+      "ornek": "Herhangi bir sorunuz olursa benimle iletişime geçmekten çekinmeyin."
+    },
+    {
+      "id": "asistan_mutluluk",
+      "kategori": "asistan",
+      "agirlik": 3,
+      "desen": "(yardımcı olmaktan|paylaşmaktan|duyurmaktan) (büyük )?(mutluluk|memnuniyet|onur|gurur|heyecan) duy\\w*",
+      "aciklama": "'I'm thrilled to share' kalıbı.",
+      "oneri": "Haberi doğrudan ver: 'Yeni kitabım çıktı.'",
+      "ornek": "Bu haberi sizlerle paylaşmaktan mutluluk duyuyorum."
+    },
+    {
+      "id": "asistan_dil_modeli",
+      "kategori": "asistan",
+      "agirlik": 3,
+      "desen": "(bir )?(yapay zek[aâ]( dil)?( modeli| asistanı)?|dil modeli) olarak,?\\s+(ben\\w*|kişisel|size|sana|bu konuda|duygu\\w*|görüş\\w*)",
+      "aciklama": "Modelin kendini tanıttığı cümle.",
+      "oneri": "Sil.",
+      "ornek": "Bir yapay zekâ dil modeli olarak bu konuda kesin bilgi veremem."
+    },
+    {
+      "id": "asistan_bu_yazida",
+      "kategori": "asistan",
+      "agirlik": 3,
+      "desen": "\\bbu (yazıda|yazımızda|makalede|makalemizde|içerikte|içeriğimizde|rehberde|rehberimizde|bölümde|videoda)\\b[^.!?\\n]{0,80}?(ele alacağız|inceleyeceğiz|değineceğiz|bakacağız|keşfedeceğiz|anlatacağız|anlatmaya çalışacağız|paylaşacağız|sunacağız|sunuyoruz|derledik|öğreneceksiniz|bulacaksınız|göz atacağız|konuşacağız)|\\b(bir sonraki|ilerleyen|aşağıdaki) (bölüm|başlık|yazı|kısım)\\w*\\b[^.!?\\n]{0,60}?(ele alacağız|inceleyeceğiz|değineceğiz|gireceğiz|bakacağız|anlatacağız)",
+      "aciklama": "İçerik duyurusu. Metin ne yapacağını söylemek yerine yapmalı.",
+      "oneri": "Duyuru cümlesini sil, doğrudan ilk fikirle başla.",
+      "ornek": "Bu yazıda uzaktan çalışmanın avantajlarını ele alacağız."
+    },
+    {
+      "id": "asistan_asagida",
+      "kategori": "asistan",
+      "agirlik": 2,
+      "desen": "aşağıda\\w*\\b[^.!?\\n]{0,60}?(bulabilirsiniz|inceleyebilirsiniz|görebilirsiniz|yer almaktadır|sıraladım|derledim|listeledim)",
+      "aciklama": "Asistan yönlendirmesi.",
+      "oneri": "Sil ya da 'En sık sorulanlar şunlar:' gibi kısa bir girişe indir.",
+      "ornek": "Aşağıda en sık sorulan soruları bulabilirsiniz."
+    },
+    {
+      "id": "asistan_iste_liste",
+      "kategori": "asistan",
+      "agirlik": 2,
+      "desen": "(?:^|(?<=[.!?]\\s))\\s*işte\\b[^.!?\\n]{0,80}:",
+      "aciklama": "'Here are...' liste girişi.",
+      "oneri": "'Dikkat edilecek beş nokta var.' gibi düz bir cümle kur.",
+      "ornek": "İşte dikkat etmeniz gereken beş nokta:"
+    },
+    {
+      "id": "asistan_gelin_bakalim",
+      "kategori": "asistan",
+      "agirlik": 3,
+      "desen": "\\b(gelin|hadi|haydi)\\b,?\\s+(?:[^\\s.!?]+\\s+){0,5}?(bakalım|keşfedelim|inceleyelim|göz atalım|öğrenelim|dalalım|başlayalım|geçelim|hatırlayalım)\\b",
+      "aciklama": "'Let's dive in' kalıbı.",
+      "oneri": "Sil. Okuru davet etme, doğrudan anlat.",
+      "ornek": "Gelin birlikte bakalım."
+    },
+    {
+      "id": "asistan_birlikte_kesfet",
+      "kategori": "asistan",
+      "agirlik": 2,
+      "desen": "\\bbirlikte (keşfedelim|inceleyelim|göz atalım|bakalım|öğrenelim)\\b",
+      "aciklama": "'Let's explore together' kalıbı.",
+      "oneri": "Sil.",
+      "ornek": "Şimdi bu yöntemleri birlikte keşfedelim."
+    },
+    {
+      "id": "asistan_merak",
+      "kategori": "asistan",
+      "agirlik": 2,
+      "desen": "(hiç )?(merak ettiniz mi|merak ediyor musunuz|hiç düşündünüz mü|düşündünüz mü hiç)",
+      "aciklama": "'Have you ever wondered' açılışı.",
+      "oneri": "Soruyu kaldır, merak uyandıran bilginin kendisiyle başla.",
+      "ornek": "Hiç merak ettiniz mi, kahve neden bu kadar popüler?"
+    },
+    {
+      "id": "asistan_davet",
+      "kategori": "asistan",
+      "agirlik": 2,
+      "desen": "(?:^|(?<=[.!?]\\s))\\s*(keşfedelim|göz atalım|dalalım|yakından bakalım|daha yakından bakalım)\\s*[.!:]",
+      "aciklama": "Tek başına okur daveti: 'Keşfedelim.'",
+      "oneri": "Sil, doğrudan anlat.",
+      "ornek": "Peki bu araçlar ne işe yarıyor? Keşfedelim."
+    },
+    {
+      "id": "asistan_iste_size",
+      "kategori": "asistan",
+      "agirlik": 2,
+      "desen": "(?:^|(?<=[.!?]\\s))\\s*işte\\s+(size|sizin için|karşınızda|en iyi|\\d+)\\b",
+      "aciklama": "'İşte size 5 öneri' tipi sunum açılışı.",
+      "oneri": "Düz bir cümle kur ('Beş önerim var.') ya da doğrudan listeye geç.",
+      "ornek": "İşte size 5 öneri."
+    },
+    {
+      "id": "asistan_derledik",
+      "kategori": "asistan",
+      "agirlik": 2,
+      "desen": "\\b(sizin için|sizler için|sizlere) (derledik|hazırladık|topladık|seçtik|bir araya getirdik)\\b",
+      "aciklama": "İçerik sitesi sunumu: 'Sizin için derledik.'",
+      "oneri": "Sil, doğrudan içeriğe gir.",
+      "ornek": "En iyi kafeleri sizin için derledik."
+    },
+    {
+      "id": "asistan_siralayabiliriz",
+      "kategori": "asistan",
+      "agirlik": 1,
+      "desen": "\\b(şöyle|şu şekilde) sıralayabiliriz\\b|\\b(özellikler|avantajlar|adımlar|nedenler|faydalar)\\w* şunlardır\\s*:",
+      "aciklama": "Liste duyurusu: 'Avantajları şöyle sıralayabiliriz:'",
+      "oneri": "Duyuruyu at ya da kısa bir girişe indir: 'Üç avantajı var:'",
+      "ornek": "Avantajları şöyle sıralayabiliriz:"
+    },
+    {
+      "id": "sablon_gunumuzde",
+      "kategori": "sablon",
+      "agirlik": 1,
+      "desen": "\\b(günümüzde|günümüz dünyasında|çağımızda|modern dünyada|günümüz toplumunda)\\b",
+      "aciklama": "Zaman belirtmeyen şablon açılış.",
+      "oneri": "Kaynakta belirli bir zaman varsa onu kullan, yoksa 'artık' de ya da sil.",
+      "ornek": "Günümüzde herkesin bir akıllı telefonu var."
+    },
+    {
+      "id": "sablon_hizla_degisen",
+      "kategori": "sablon",
+      "agirlik": 3,
+      "desen": "hızla (değişen|gelişen|dönüşen|ilerleyen)\\s+(bu\\s+)?(dünya|çağ|teknoloji|iş dünyası|ortam|dijital|piyasa|sektör)\\w*",
+      "aciklama": "'In today's fast-paced world' kalıbı.",
+      "oneri": "Sil. Kaynakta değişime dair somut bir örnek varsa onu öne çıkar.",
+      "ornek": "Hızla değişen dünyada şirketler uyum sağlamak zorunda."
+    },
+    {
+      "id": "sablon_teknoloji_gelisme",
+      "kategori": "sablon",
+      "agirlik": 2,
+      "desen": "teknolojinin (hızla |sürekli )?(gelişmesiyle|ilerlemesiyle|gelişimiyle)( birlikte)?",
+      "aciklama": "Gerekçe yerine geçen şablon zaman zarfı.",
+      "oneri": "Kaynak hangi teknolojiyi kastediyorsa onu söyle, yoksa 'teknoloji geliştikçe' kadar sadeleştir.",
+      "ornek": "Teknolojinin hızla gelişmesiyle birlikte alışkanlıklarımız değişti."
+    },
+    {
+      "id": "sablon_dijital_cag",
+      "kategori": "sablon",
+      "agirlik": 2,
+      "desen": "\\b(dijital|modern|teknoloji|bilgi|yapay zek[aâ]) çağ(ı?n)?d[ae]\\b",
+      "aciklama": "'In the digital age' kalıbı.",
+      "oneri": "Sil ya da somut bir zaman/olgu ver.",
+      "ornek": "Dijital çağda bilgiye ulaşmak çok kolay."
+    },
+    {
+      "id": "sablon_giderek_artan",
+      "kategori": "sablon",
+      "agirlik": 2,
+      "desen": "(giderek|her geçen gün|gün geçtikçe)\\s+(artan|önem kazanan|yaygınlaşan|daha fazla (önem|ilgi)|büyüyen)\\w*",
+      "aciklama": "Kanıtsız eğilim iddiası.",
+      "oneri": "Kaynakta sayı varsa ver, yoksa 'giderek daha çok ilgi görüyor' gibi sade söyle.",
+      "ornek": "Giderek artan ilgiyle birlikte konu gündeme geldi."
+    },
+    {
+      "id": "sablon_her_zamankinden",
+      "kategori": "sablon",
+      "agirlik": 3,
+      "desen": "her zamankinden (daha )?(fazla|çok|önemli|kritik|gerekli)",
+      "aciklama": "'More than ever' kalıbı.",
+      "oneri": "Sil ya da kaynaktaki gerekçeyle 'artık daha önemli' de.",
+      "ornek": "Bu beceri artık her zamankinden daha önemli."
+    },
+    {
+      "id": "sablon_sonuc_olarak",
+      "kategori": "sablon",
+      "agirlik": 1,
+      "desen": "\\b(sonuç olarak|özetle|kısacası|toparlamak gerekirse|özetlemek gerekirse|sonuç itibar[ıi]yla|nihayetinde|son tahlilde)\\b",
+      "aciklama": "Özet kapanış işareti. Tek başına sorun değil, metnin sonunu baştan tekrar ediyorsa sorun.",
+      "oneri": "Son paragraf öncekileri tekrarlıyorsa sil. Kalacaksa yeni bir şey söylesin.",
+      "ornek": "Sonuç olarak her iki yaklaşımın da artıları var."
+    },
+    {
+      "id": "sablon_unutmamak",
+      "kategori": "sablon",
+      "agirlik": 2,
+      "desen": "\\b(unutmamak gerekir|unutulmamalıdır|şunu (da )?belirtmek gerekir|belirtmek gerekir|belirtmekte fayda (var|vardır)|altını çizmek gerekir|önemle vurgulamak gerekir|göz ardı edilmemelidir|dikkat edilmesi gereken (en önemli )?(nokta|husus))\\w*",
+      "aciklama": "Uyarı kılığında dolgu.",
+      "oneri": "Uyarıyı sil, uyarılacak şeyi doğrudan söyle.",
+      "ornek": "Unutmamak gerekir ki her yöntemin sınırları vardır."
+    },
+    {
+      "id": "sablon_ayrilmaz",
+      "kategori": "sablon",
+      "agirlik": 3,
+      "desen": "ayrılmaz (bir )?(parçası|parçasıdır|unsuru)",
+      "aciklama": "'Integral part of' kalıbı.",
+      "oneri": "Sade bir saptamaya indir ya da sil. Tek bir kalıba bağlanma: 'artık her yerde', 'gündelik hayatın parçası oldu', 'çoğumuz için sıradan'. Kaynakta ölçü varsa onu ver.",
+      "ornek": "Akıllı telefonlar hayatımızın ayrılmaz bir parçası oldu."
+    },
+    {
+      "id": "sablon_gelecegi_sekillendir",
+      "kategori": "sablon",
+      "agirlik": 3,
+      "desen": "(geleceği(mizi|ni)?|yarınları(mızı)?|geleceğin) (\\w+ )?şekillendir\\w*",
+      "aciklama": "'Shape the future' kalıbı.",
+      "oneri": "Kaynak neyin değişeceğini söylüyorsa onu yaz, yoksa 'geleceği etkileyecek' kadar sadeleştir.",
+      "ornek": "Yapay zekâ geleceğimizi şekillendirecek."
+    },
+    {
+      "id": "sablon_yolculuk",
+      "kategori": "sablon",
+      "agirlik": 2,
+      "desen": "(öğrenme|dönüşüm|keşif|kariyer|gelişim|başarı|kişisel gelişim|iyileşme|dijitalleşme|girişimcilik|liderlik|yazarlık)\\s+yolculuğ\\w*|uzun soluklu bir yolculuğ\\w*",
+      "aciklama": "Mecazi 'journey' kullanımı.",
+      "oneri": "'süreç', 'yıllar', 'iş' gibi düz bir sözcük kullan ya da süreyi ver.",
+      "ornek": "Kariyer yolculuğunuzda size eşlik edecek ipuçları."
+    },
+    {
+      "id": "sablon_dunyasina_dal",
+      "kategori": "sablon",
+      "agirlik": 3,
+      "desen": "dünyasına (dal\\w*|bir yolculuk\\w*|yolculuk\\w*|adım at\\w*|giriş yap\\w*|kapı aral[aı]\\w*)",
+      "aciklama": "'Dive into the world of' kalıbı.",
+      "oneri": "Sil, konunun kendisiyle başla.",
+      "ornek": "Gelin, kahvenin büyülü dünyasına dalalım."
+    },
+    {
+      "id": "sablon_derinlemesine",
+      "kategori": "sablon",
+      "agirlik": 2,
+      "desen": "derinlemesine (bir )?(bakış|bak\\w*|inceleme|incel[ei]\\w*|dalış|analiz|ele al)\\w*|derin bir dalış",
+      "aciklama": "'Deep dive' kalıbı.",
+      "oneri": "'ayrıntılı', 'yakından' ya da hiçbiri.",
+      "ornek": "Bu yazıda konuya derinlemesine bakıyoruz."
+    },
+    {
+      "id": "sablon_veda",
+      "kategori": "sablon",
+      "agirlik": 2,
+      "desen": "keyifli (okumalar|demlemeler|dinlemeler|seyirler|denemeler|alışverişler)|bir sonraki yazıda görüşmek üzere|takipte kalın|(her zaman )?yanınızdayız|bizi takip edin\\w*|paylaşmayı unutmayın|yorumlarda (bizimle )?paylaş\\w*|\\biyi okumalar\\b",
+      "aciklama": "Blog vedası kalıbı.",
+      "oneri": "Sil ya da yazara özgü bir kapanış kullan.",
+      "ornek": "Keyifli demlemeler!"
+    },
+    {
+      "id": "sablon_unutmayin",
+      "kategori": "sablon",
+      "agirlik": 1,
+      "desen": "(?:^|(?<=[.!?]\\s))\\s*unutmayın\\b",
+      "aciklama": "Okuru uyaran şablon açılış: 'Unutmayın, ...'",
+      "oneri": "Uyarıyı at, söylenecek şeyi doğrudan söyle.",
+      "ornek": "Unutmayın, her büyük iş küçük bir adımla başlar.",
+      "serbest": 1
+    },
+    {
+      "id": "sablon_vurgulamak_isterim",
+      "kategori": "sablon",
+      "agirlik": 2,
+      "desen": "\\b(vurgulamak|belirtmek|altını çizmek|hatırlatmak|ifade etmek) ist(erim|iyorum|eriz|iyoruz)\\b",
+      "aciklama": "Söyleyeceğini duyuran kalıp.",
+      "oneri": "Duyuruyu at, vurgulanacak şeyi söyle.",
+      "ornek": "Burada şunu vurgulamak isterim ki veri her şeydir."
+    },
+    {
+      "id": "sablon_tum_bu",
+      "kategori": "sablon",
+      "agirlik": 1,
+      "desen": "\\btüm bu (gelişmeler|faktörler|unsurlar|etkenler|nedenler|adımlar|özellikler)\\w*",
+      "aciklama": "Toparlayıcı özet öznesi: 'Tüm bu gelişmeler ...'",
+      "oneri": "Neyi kastettiğini adıyla söyle ya da cümleyi önceki fikre bağla.",
+      "ornek": "Tüm bu gelişmeler sektörü yeniden şekillendiriyor."
+    },
+    {
+      "id": "sablon_yolculuk_mecaz",
+      "kategori": "sablon",
+      "agirlik": 1,
+      "desen": "\\bbu yolculukta (size|bize|sizlere|bizlere)\\b|bir yolculuğa davet\\w*|(sizi|seni|sizleri) (bu |bir )?yolculuğa\\b",
+      "aciklama": "Mecazi 'yolculuk'.",
+      "oneri": "'Süreç', 'yıllar', 'iş' ya da süreyi ver.",
+      "ornek": "Bu yolculukta size eşlik edeceğiz."
+    },
+    {
+      "id": "sablon_baslangic",
+      "kategori": "sablon",
+      "agirlik": 1,
+      "desen": "\\b(bu )?(yalnızca|sadece|daha) bir başlangıç\\w*",
+      "aciklama": "Kapanış klişesi: 'Bu yalnızca bir başlangıç.'",
+      "oneri": "Sil ya da gerçekten sırada ne olduğunu söyle.",
+      "ornek": "Bu yalnızca bir başlangıç."
+    },
+    {
+      "id": "ceviri_rol_oyna",
+      "kategori": "ceviri",
+      "agirlik": 3,
+      "desen": "(önemli|kritik|hayati|kilit|anahtar|merkezi|büyük|belirleyici|temel|aktif|etkin|vazgeçilmez)\\s+(bir\\s+)?rol\\s+(oyn[aıu]|üstlen)\\w*|rol(ünü|lerinden birini|lerinden birini de)\\s+oyn[aıu]\\w*",
+      "aciklama": "'Play a key role' çevirisi. Türkçe yapay zekâ metninin en tipik imzalarından. Oyunculukta gerçek rol kapsam dışıdır, bağlama bak.",
+      "oneri": "Etkiyi fiille söyle: 'X, Y'de belirleyici', 'Y büyük ölçüde X'e bağlı'.",
+      "ornek": "Eğitim bu süreçte kritik bir rol oynamaktadır."
+    },
+    {
+      "id": "ceviri_onem_tasi",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "(büyük|hayati|kritik|özel|ayrı|stratejik|son derece)\\s+(bir\\s+)?önem\\s+(taşı|arz e[td])\\w*|önem arz e[td]\\w*|\\bönem taşı(r|maktadır|yor|dığı)\\w*",
+      "aciklama": "Önemi göstermek yerine ilan etmek.",
+      "oneri": "'önemli' de ya da kaynakta varsa önemini gösteren sonucu söyle.",
+      "ornek": "Bu konu büyük önem taşımaktadır."
+    },
+    {
+      "id": "ceviri_oneme_sahip",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "öneme sahip\\w*|(önemli|özel|ayrı|müstesna|kritik|büyük|merkezi|ayrıcalıklı)\\s+(bir\\s+)?(yere|konuma)\\s+sahip\\w*",
+      "aciklama": "'Is of great importance / holds an important place' çevirisi.",
+      "oneri": "'önemli' de, ya da 'önemli bir yeri var'.",
+      "ornek": "Veri güvenliği kritik bir öneme sahiptir."
+    },
+    {
+      "id": "ceviri_sahip",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "(potansiyele|kapasiteye|yeteneğe|özelliğe|özelliklere|avantaja|avantajlara|etkiye|güce|değere|niteliğe|kaliteye)\\s+sahip\\w*",
+      "aciklama": "'Has the capacity/potential' çevirisi. Türkçe çoğu zaman fiille söyler.",
+      "oneri": "'X yapabiliyor', 'X'i var' ya da '-li' sıfatı.",
+      "ornek": "Bu ürün geniş bir kapasiteye sahiptir."
+    },
+    {
+      "id": "ceviri_anlamina_gelir",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "anlamına gel\\w*",
+      "aciklama": "'This means...' köprüsü. Sık tekrarlanırsa çeviri kokar.",
+      "oneri": "'Yani', 'demek ki' ya da sonucu doğrudan söyle.",
+      "ornek": "Bu da daha fazla kâr anlamına geliyor.",
+      "serbest": 1
+    },
+    {
+      "id": "ceviri_ust_seviye",
+      "kategori": "ceviri",
+      "agirlik": 3,
+      "desen": "(bir\\s+)?(üst|sonraki|ileri|yeni bir)\\s+(seviyeye|boyuta|düzeye|aşamaya)\\s+taşı\\w*|bir adım (öteye|ileriye) taşı\\w*|bir adım öne çık\\w*",
+      "aciklama": "'Take it to the next level' çevirisi.",
+      "oneri": "'geliştirmek', 'iyileştirmek' ya da kaynakta varsa neyin nasıl iyileştiğini söyle.",
+      "ornek": "Bu araç işinizi bir üst seviyeye taşıyacak."
+    },
+    {
+      "id": "ceviri_oyun_kurallari",
+      "kategori": "ceviri",
+      "agirlik": 3,
+      "desen": "oyunun kurallarını (yeniden )?(değiştir|yaz)\\w*|oyun değiştirici",
+      "aciklama": "'Game changer' çevirisi.",
+      "oneri": "Değişikliğin kendisini anlat.",
+      "ornek": "Bu teknoloji oyunun kurallarını değiştiriyor."
+    },
+    {
+      "id": "ceviri_deger_kat",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "değer kat\\w*",
+      "aciklama": "'Add value' çevirisi.",
+      "oneri": "Ne kazandırdığını fiille söyle: 'işi hızlandırıyor', 'işe yarıyor', 'kolaylaştırıyor'.",
+      "ornek": "Ekibimize değer katacak adaylar arıyoruz."
+    },
+    {
+      "id": "ceviri_fark_yarat",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "fark yarat\\w*",
+      "aciklama": "'Make a difference' çevirisi. Yerleşmiş ama aşınmış.",
+      "oneri": "Farkın ne olduğunu söyle.",
+      "ornek": "Küçük adımlar büyük fark yaratır."
+    },
+    {
+      "id": "ceviri_isik_tut",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "ışık tut\\w*",
+      "aciklama": "'Shed light on' çevirisi.",
+      "oneri": "'açıklıyor', 'gösteriyor', 'anlatıyor'.",
+      "ornek": "Bu çalışma tarihin karanlık noktalarına ışık tutuyor."
+    },
+    {
+      "id": "ceviri_kapilari_arala",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "kapı(sını|larını|ları) aral[aı]\\w*|(fırsatların|olanakların|imk[aâ]nların|geleceğin|başarının)\\s+kapı\\w*\\s+aç\\w*|\\bkapı aral[aı]\\w*",
+      "aciklama": "'Open the doors to' kalıbı.",
+      "oneri": "'mümkün kılıyor', 'yolunu açıyor' ya da somut sonuç.",
+      "ornek": "Bu kitap yeni fırsatların kapılarını aralıyor."
+    },
+    {
+      "id": "ceviri_potansiyel",
+      "kategori": "ceviri",
+      "agirlik": 3,
+      "desen": "potansiyel\\w*\\s+(ortaya çıkar|açığa çıkar|serbest bırak|kilidini aç|keşfe[td]|gerçekleştir|tam olarak kullan)\\w*|tam potansiyel\\w*",
+      "aciklama": "'Unlock your full potential' kalıbı.",
+      "oneri": "Kişinin ne yapabileceğini somut söyle.",
+      "ornek": "Ekibinizin tam potansiyelini ortaya çıkarın."
+    },
+    {
+      "id": "ceviri_icgoru",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "\\biçgörü\\w*",
+      "aciklama": "'Insight' karşılığı. Neredeyse yalnızca çeviri metinlerde geçer, gündelik Türkçede pek kullanılmaz.",
+      "oneri": "'fikir', 'bulgu', 'gözlem', 'ders', 'ipucu'.",
+      "ornek": "Rapor bize önemli içgörüler veriyor."
+    },
+    {
+      "id": "ceviri_degerli",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "değerli\\s+(bilgiler|içgörüler|ipuçları|bir kaynak|kaynaklar|deneyimler|bir rehber|katkılar)\\w*",
+      "aciklama": "'Valuable insights/tips' kalıbı.",
+      "oneri": "Sıfatı at, bilginin kendisini ver.",
+      "ornek": "Bu kitapta değerli ipuçları bulacaksınız."
+    },
+    {
+      "id": "ceviri_yelpaze",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "geniş (bir )?yelpaze\\w*|birçok farklı|pek çok farklı|çeşitli farklı",
+      "aciklama": "'A wide range of' çevirisi.",
+      "oneri": "'Çeşitli', 'pek çok' ya da kaynakta varsa sayı ve örnekler.",
+      "ornek": "Geniş bir yelpazede hizmet sunuyoruz."
+    },
+    {
+      "id": "ceviri_bir_sekilde",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "\\b(etkili|etkin|verimli|başarılı|sorunsuz|hızlı|kolay|doğru|güvenli|sürdürülebilir|kapsamlı|dengeli|anlamlı|kalıcı|sağlıklı|bilinçli|düzenli|aktif|pozitif|olumlu|ciddi|net|tutarlı|stratejik|etkileyici|uyumlu|optimum|optimal|profesyonel|sistematik|detaylı|şeffaf|esnek|hassas|dikkatli|planlı|organik)\\s+bir\\s+(şekilde|biçimde)\\b|\\ben iyi (şekilde|biçimde)\\b",
+      "aciklama": "İngilizce '-ly' zarfının çevirisi ('effectively' → 'etkili bir şekilde').",
+      "oneri": "'-ce/-ca' eki ('dikkatlice'), yalın sıfat ('iyi', 'hızlı') ya da fiili değiştir.",
+      "ornek": "Projeyi başarılı bir şekilde tamamladık."
+    },
+    {
+      "id": "ceviri_sorunsuz",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "sorunsuz\\s+(bir\\s+)?(deneyim|entegrasyon|geçiş|kullanım|iletişim)\\w*|zahmetsizce",
+      "aciklama": "'Seamless experience' kalıbı.",
+      "oneri": "Kullanıcının neyi yapmak zorunda kalmadığını söyle.",
+      "ornek": "Sorunsuz bir deneyim için uygulamamızı indirin."
+    },
+    {
+      "id": "ceviri_titizlik",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "(titizlikle|itinayla)\\s+(hazırlan|seçil|tasarlan|oluşturul|geliştiril|derlen)\\w*",
+      "aciklama": "'Meticulously crafted' kalıbı.",
+      "oneri": "Özenin kanıtını ver ya da sil.",
+      "ornek": "Her ürün titizlikle hazırlanmış malzemelerden üretilir."
+    },
+    {
+      "id": "ceviri_cigir",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "çığır açan|devrim niteliğinde|devrim yarat\\w*|dönüm noktası niteliğinde\\w*|dönüştürücü\\s+(bir\\s+)?(güç|etki|teknoloji)\\w*",
+      "aciklama": "Pazarlama abartısı.",
+      "oneri": "Neyi farklı yaptığını tek cümleyle söyle.",
+      "ornek": "Çığır açan bir teknolojiyle tanışın."
+    },
+    {
+      "id": "ceviri_temel_tasi",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "(temel|köşe) taşı\\w*",
+      "aciklama": "'Cornerstone' çevirisi.",
+      "oneri": "'X olmadan Y olmaz' gibi düz bir kurgu.",
+      "ornek": "Güven, her ilişkinin temel taşıdır."
+    },
+    {
+      "id": "ceviri_itici_guc",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "itici gü[çc]\\w*",
+      "aciklama": "'Driving force' çevirisi.",
+      "oneri": "Nedensellik fiili kullan: 'büyümeyi X sürüklüyor'.",
+      "ornek": "İnovasyon büyümenin itici gücüdür."
+    },
+    {
+      "id": "ceviri_kucakla",
+      "kategori": "ceviri",
+      "agirlik": 3,
+      "desen": "(değişimi|farklılıkları|yeniliği|yenilikleri|teknolojiyi|geleceği|belirsizliği|çeşitliliği|dönüşümü|kusurları|hataları)\\w*\\s+kucakl[aı]\\w*",
+      "aciklama": "'Embrace change' çevirisi. Türkçede soyut kavram kucaklanmaz.",
+      "oneri": "'benimsemek', 'kabullenmek', 'ayak uydurmak'.",
+      "ornek": "Başarılı şirketler değişimi kucaklar."
+    },
+    {
+      "id": "ceviri_deneyimle",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "\\bdeneyiml(e(y|me|di|miş|t)|iyor)\\w*",
+      "aciklama": "'To experience' çevirisi.",
+      "oneri": "'yaşamak', 'denemek', 'tatmak', 'görmek'.",
+      "ornek": "Bu lezzeti mutlaka deneyimleyin."
+    },
+    {
+      "id": "ceviri_deneyim",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "\\b(alışveriş|kahve|yemek|seyahat|tatil|izleme|okuma|oyun|sürüş|lezzet|konaklama|gastronomi|kahvaltı) deneyimi\\w*",
+      "aciklama": "'Coffee/shopping experience' kalıbı. 'Kullanıcı deneyimi' gibi yerleşik terimler kapsam dışıdır.",
+      "oneri": "Deneyimi değil eylemi söyle: 'kahveniz daha lezzetli olur', 'alışveriş kolaylaşır'.",
+      "ornek": "Bu ipuçlarıyla kahve deneyiminizi geliştirebilirsiniz."
+    },
+    {
+      "id": "ceviri_en_iyi_uygulama",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "en iyi uygulama\\w*",
+      "aciklama": "'Best practices' çevirisi.",
+      "oneri": "'işe yarayan yöntemler', 'yerleşik yöntemler' ya da somut uygulama.",
+      "ornek": "Sektördeki en iyi uygulamaları inceledik."
+    },
+    {
+      "id": "ceviri_akilda_tut",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "akılda tut\\w*|aklınızda bulundur\\w*|aklınızda tut\\w*",
+      "aciklama": "'Keep in mind' çevirisi.",
+      "oneri": "Uyarmadan doğrudan söyle ya da 'hesaba katın', 'dikkat edin'.",
+      "ornek": "Bunu akılda tutmak önemlidir."
+    },
+    {
+      "id": "ceviri_gunun_sonunda",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "(?:^|(?<=[.!?]\\s))\\s*günün sonunda,",
+      "aciklama": "Mecazi 'at the end of the day'.",
+      "oneri": "'Sonuçta', 'neticede' ya da sil.",
+      "ornek": "Günün sonunda, önemli olan sonuçtur."
+    },
+    {
+      "id": "ceviri_denge",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "(hassas|ince)\\s+(bir\\s+)?denge\\w*|doğru dengeyi\\s+(bul|kur|sağl[aı])\\w*",
+      "aciklama": "'Strike the right balance' kalıbı.",
+      "oneri": "Dengenin iki tarafını adıyla söyle.",
+      "ornek": "Burada hassas bir denge gözetmek gerekiyor."
+    },
+    {
+      "id": "ceviri_manzara",
+      "kategori": "ceviri",
+      "agirlik": 3,
+      "desen": "(dijital|iş|teknoloji|rekabet|medya|eğitim|siyasi|ekonomik|finans|pazar|girişimcilik|sektörel)\\s+manzara\\w*",
+      "aciklama": "'Landscape' mecazının çevirisi.",
+      "oneri": "'piyasa', 'durum', 'tablo', 'sektör'.",
+      "ornek": "Dijital manzara her gün değişiyor."
+    },
+    {
+      "id": "ceviri_mozaik",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "(zengin|renkli|eşsiz|çok katmanlı)\\s+(bir\\s+)?(mozaik|doku|goblen|kilim)\\w*|kültürel mozaik\\w*",
+      "aciklama": "'Rich tapestry' kalıbı.",
+      "oneri": "Çeşitliliği adlarıyla say.",
+      "ornek": "Anadolu zengin bir kültürel mozaiktir."
+    },
+    {
+      "id": "ceviri_ekosistem",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "\\b(ekosistem|sinerji|paradigma)\\w*",
+      "aciklama": "Kurumsal moda sözcükler (ekoloji dışı bağlamda).",
+      "oneri": "'Çevre', 'iş birliği', 'bakış' ya da somut aktörleri say.",
+      "ornek": "Girişim ekosistemi hızla büyüyor."
+    },
+    {
+      "id": "ceviri_kalbinde",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "(?<![^\\W\\d_])[^\\W\\d_]+ kalbinde\\b[^.!?\\n]{0,40}?\\b(yer al|bulun|yat)\\w*",
+      "aciklama": "'At the heart of' kalıbı.",
+      "oneri": "'temelinde', 'asıl nedeni' ya da düz cümle.",
+      "ornek": "Sorunun kalbinde güven eksikliği yatıyor."
+    },
+    {
+      "id": "ceviri_yatiyor",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "(cevabı|yanıtı|çözümü|sırrı|anahtarı|kökeni|nedeni)\\b[^.!?\\n]{0,40}?\\byat(ıyor|maktadır|ar)\\b",
+      "aciklama": "'The answer lies in' çevirisi.",
+      "oneri": "'X'e bağlı', 'X'ten geçiyor' ya da doğrudan yüklem.",
+      "ornek": "Başarının sırrı disiplinde yatıyor."
+    },
+    {
+      "id": "ceviri_anahtar",
+      "kategori": "ceviri",
+      "agirlik": 2,
+      "desen": "(başarının|çözümün|mutluluğun|büyümenin|verimliliğin|geleceğin|sağlığın|kariyerin|rekabetin|dönüşümün|güvenin|iletişimin|kalitenin|sürdürülebilirliğin)\\s+anahtarı\\w*|anahtar\\s+(faktör|unsur|öneme|kelime olan)\\w*",
+      "aciklama": "'Key to success / key factor' çevirisi.",
+      "oneri": "'en önemli şey', 'belirleyen' ya da doğrudan söyle.",
+      "ornek": "Başarının anahtarı tutarlılıktır."
+    },
+    {
+      "id": "ceviri_eposta_bulur",
+      "kategori": "ceviri",
+      "agirlik": 3,
+      "desen": "umarım (bu )?(e-posta|e-postam|mesaj|mesajım|ileti) sizi (iyi|sağlıklı|mutlu|huzurlu) bul\\w*",
+      "aciklama": "'I hope this email finds you well' çevirisi. Türkçe yazışmada karşılığı yok.",
+      "oneri": "Sil. Gerekiyorsa 'Merhaba, umarım iyisinizdir.'",
+      "ornek": "Umarım bu e-posta sizi iyi bulur."
+    },
+    {
+      "id": "ceviri_hayat_kolay",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "hayat(ınızı|ımızı|ı)\\s+(çok\\s+)?(daha\\s+)?kolaylaştır\\w*",
+      "aciklama": "'Make your life easier' kalıbı.",
+      "oneri": "Hangi işi kısalttığını söyle.",
+      "ornek": "Bu uygulama hayatınızı kolaylaştıracak."
+    },
+    {
+      "id": "ceviri_goz_onunde",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "göz önünde bulundur\\w*|göz önüne alındığında",
+      "aciklama": "'Take into account' çevirisi. Resmi metinde yerinde, diğerlerinde ağır.",
+      "oneri": "'hesaba katmak', 'düşünmek'.",
+      "ornek": "Bütçeyi göz önünde bulundurmak gerekir."
+    },
+    {
+      "id": "ceviri_yol_haritasi",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "yol harita\\w*",
+      "aciklama": "'Roadmap' mecazı.",
+      "oneri": "'plan', 'adımlar'.",
+      "ornek": "Size net bir yol haritası sunuyoruz.",
+      "serbest": 1
+    },
+    {
+      "id": "ceviri_ilham",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "ilham ver(ici|en)\\w*",
+      "aciklama": "'Inspiring' sıfatı. Pazarlama metninde aşınmış.",
+      "oneri": "Neyi neden etkileyici bulduğunu söyle.",
+      "ornek": "İlham verici bir hikâye."
+    },
+    {
+      "id": "ceviri_isiginda",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "\\b(bu|bu bilgiler|bu veriler|bulgular|gelişmeler|veriler|bilgiler|sonuçlar|deneyimler|tecrübeler)\\w*\\s+ışığında\\b",
+      "aciklama": "'In light of' aktarımı.",
+      "oneri": "'Bu verilere göre', 'bu yüzden' ya da cümleyi baştan kur.",
+      "ornek": "Bu veriler ışığında yeni bir plan hazırladık."
+    },
+    {
+      "id": "ceviri_beraberinde",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "\\bberaberinde\\b[^.!?\\n]{0,60}?\\bgetir\\w*",
+      "aciklama": "'Bring with it' aktarımı.",
+      "oneri": "Doğrudan fiil: 'X, Y'ye yol açıyor', 'X ile birlikte Y de geliyor'.",
+      "ornek": "Bu değişim beraberinde yeni sorunlar getiriyor."
+    },
+    {
+      "id": "ceviri_maksimize",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "en üst (düzeye|seviyeye) çıkar\\w*|\\bmaksimize\\w*|\\boptimize et\\w*",
+      "aciklama": "'Maximize / optimize' aktarımı.",
+      "oneri": "'Artırmak', 'iyileştirmek' ya da neyin ne kadar arttığını söyle.",
+      "ornek": "Verimliliği en üst düzeye çıkarmak için ipuçları."
+    },
+    {
+      "id": "ceviri_yaklasim",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "\\b(bütüncül|çok yönlü|holistik|proaktif|yenilikçi|insan odaklı|müşteri odaklı)\\s+(bir\\s+)?yaklaşım\\w*",
+      "aciklama": "Kurumsal sıfat + 'yaklaşım' kalıbı.",
+      "oneri": "Yaklaşımın ne yaptığını fiille anlat.",
+      "ornek": "Şirket bütüncül bir yaklaşım benimsiyor."
+    },
+    {
+      "id": "ceviri_kilit",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "\\bkilit\\s+(bir\\s+)?(konum|öneme|önem|unsur|faktör|aktör)\\w*",
+      "aciklama": "'Key' aktarımı: 'kilit bir konumda'.",
+      "oneri": "'Önemli', 'belirleyici' ya da neyi belirlediğini söyle.",
+      "ornek": "Bölge enerji ticaretinde kilit bir konumdadır."
+    },
+    {
+      "id": "ceviri_kokten",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "\\bkökten (dönüştür|değiştir)\\w*|\\bköprü(yü|sü)\\s+(kur|ol)\\w*|\\bköprü görevi gör\\w*",
+      "aciklama": "Abartılı dönüşüm ve 'köprü' mecazları.",
+      "oneri": "Neyin nasıl değiştiğini ya da neyi neye bağladığını söyle.",
+      "ornek": "Yapay zekâ iş süreçlerini kökten dönüştürüyor.",
+      "serbest": 1
+    },
+    {
+      "id": "ceviri_ihtiyaca_cevap",
+      "kategori": "ceviri",
+      "agirlik": 1,
+      "desen": "\\bihtiyaç\\w*\\s+(cevap|yanıt)\\s+ver\\w*|\\bhedefleriniz[ei]\\s+(daha hızlı\\s+)?ulaş\\w*",
+      "aciklama": "'Meet the needs', 'reach your goals' aktarımları.",
+      "oneri": "Hangi ihtiyacı nasıl karşıladığını söyle.",
+      "ornek": "Ürün kullanıcıların ihtiyaçlarına cevap veriyor."
+    },
+    {
+      "id": "abarti_sifat",
+      "kategori": "abarti",
+      "agirlik": 1,
+      "desen": "\\b(benzersiz|eşsiz|paha biçilmez|büyüleyici|muhteşem|inanılmaz|etkileyici|göz alıcı|nefes kesici|unutulmaz|kusursuz)\\w*|\\bolağanüstü\\w*(?!\\s+(hal|toplantı|genel kurul|kongre))",
+      "aciklama": "İçi boş değerlendirme sıfatı.",
+      "oneri": "Sıfatı sil. Kaynakta sıfatı hak ettiren bir ayrıntı varsa onu öne çıkar.",
+      "ornek": "Eşsiz manzarasıyla unutulmaz bir tatil."
+    },
+    {
+      "id": "abarti_vazgecilmez",
+      "kategori": "abarti",
+      "agirlik": 1,
+      "desen": "vazgeçilmez\\w*",
+      "aciklama": "Abartılı gereklilik sıfatı.",
+      "oneri": "Ne kadar gerekli olduğunu ölçüyle söyle ya da sil.",
+      "ornek": "Kahve sabahlarımın vazgeçilmezi."
+    },
+    {
+      "id": "abarti_son_derece",
+      "kategori": "abarti",
+      "agirlik": 1,
+      "desen": "\\bson derece\\b",
+      "aciklama": "Pekiştirme dolgusu. Sık geçerse metni şişirir.",
+      "oneri": "Sil ya da 'çok' de.",
+      "ornek": "Bu son derece önemli bir konu."
+    },
+    {
+      "id": "abarti_rehber",
+      "kategori": "abarti",
+      "agirlik": 2,
+      "desen": "(kapsamlı|eksiksiz|nihai|adım adım)\\s+(bir\\s+)?(rehber|kılavuz)\\w*",
+      "aciklama": "'Ultimate/comprehensive guide' kalıbı.",
+      "oneri": "Konuyu söyle: 'Yeni başlayanlar için ekşi maya'.",
+      "ornek": "Yeni başlayanlar için kapsamlı bir rehber hazırladık."
+    },
+    {
+      "id": "abarti_kacirmayin",
+      "kategori": "abarti",
+      "agirlik": 2,
+      "desen": "\\b(bu )?fırsatı kaçırmayın\\b|\\bbambaşka bir dünyaya\\b|\\bgücün(ü|den) (keşfe|yararlan|kullan)\\w*",
+      "aciklama": "Reklam dili: 'Bu fırsatı kaçırmayın!', 'gücünü keşfedin'.",
+      "oneri": "Teklifin kendisini ve koşulunu söyle (kaynakta varsa tarih, fiyat).",
+      "ornek": "Siz de bu fırsatı kaçırmayın!"
+    },
+    {
+      "id": "abarti_altin_degerinde",
+      "kategori": "abarti",
+      "agirlik": 1,
+      "desen": "\\baltın değerinde\\w*|\\brakiplerinden ayır\\w*|\\bkullanıcı dostu\\b",
+      "aciklama": "Pazarlama klişesi: 'altın değerinde', 'rakiplerinden ayırıyor', 'kullanıcı dostu'.",
+      "oneri": "Neyin işe yaradığını ya da farkın ne olduğunu somut söyle.",
+      "ornek": "Bu süreçte sabır altın değerindedir.",
+      "serbest": 1
+    },
+    {
+      "id": "dolgu_vurgu",
+      "kategori": "dolgu",
+      "agirlik": 1,
+      "desen": "\\b(gerçekten de|kelimenin tam anlamıyla|tam anlamıyla|gerçek anlamda|esasen|özünde)\\b",
+      "aciklama": "Vurgu dolgusu ('truly', 'literally', 'essentially').",
+      "oneri": "Sil. Türkçe vurguyu sözcük dizilişiyle yapar.",
+      "ornek": "Bu gerçekten de zor bir karar."
+    },
+    {
+      "id": "dolgu_suphesiz",
+      "kategori": "dolgu",
+      "agirlik": 1,
+      "desen": "\\b(hiç şüphesiz|şüphesiz ki|kuşkusuz ki|hiç kuşkusuz|şüphesiz)\\b",
+      "aciklama": "Kesinlik dolgusu ('undoubtedly').",
+      "oneri": "Sil ya da kanıtı ver.",
+      "ornek": "Hiç şüphesiz bu yılın en önemli gelişmesi.",
+      "serbest": 1
+    },
+    {
+      "id": "dolgu_adeta",
+      "kategori": "dolgu",
+      "agirlik": 1,
+      "desen": "\\badeta\\b",
+      "aciklama": "Somut ayrıntının yerini tutan belirsiz benzetme.",
+      "oneri": "Benzetmeyi somut ayrıntıyla değiştir ya da sil.",
+      "ornek": "Şehir adeta bir açık hava müzesi."
+    },
+    {
+      "id": "dolgu_bir_bakima",
+      "kategori": "dolgu",
+      "agirlik": 1,
+      "desen": "\\b(bir bakıma|bir anlamda|belli bir ölçüde|bir nevi)\\b",
+      "aciklama": "Kaçamak ('in a way').",
+      "oneri": "Hangi açıdan doğru olduğunu söyle ya da sil.",
+      "ornek": "Bu bir bakıma kaçınılmazdı."
+    },
+    {
+      "id": "dolgu_olcude",
+      "kategori": "dolgu",
+      "agirlik": 1,
+      "desen": "\\b(önemli|büyük|kayda değer|ciddi)\\s+ölçüde\\b",
+      "aciklama": "Ölçüsüz ölçü ('significantly').",
+      "oneri": "Çoğu zaman silinebilir. Kaynakta sayı varsa onu ver. Akademik metinde istatistiksel anlam taşıyorsa ('anlamlı düzeyde') koru.",
+      "ornek": "Maliyetler önemli ölçüde azaldı.",
+      "serbest": 1
+    },
+    {
+      "id": "dolgu_dikkat_cekici",
+      "kategori": "dolgu",
+      "agirlik": 1,
+      "desen": "\\b(dikkat çekici|dikkate değer)\\b",
+      "aciklama": "'Notable/remarkable' dolgusu.",
+      "oneri": "Neyin dikkat çektiğini söyle.",
+      "ornek": "Dikkat çekici bir artış yaşandı.",
+      "serbest": 1
+    },
+    {
+      "id": "dolgu_altini_ciz",
+      "kategori": "dolgu",
+      "agirlik": 1,
+      "desen": "altını çiz\\w*|gözler önüne ser\\w*",
+      "aciklama": "'Underscore/highlight' çevirisi.",
+      "oneri": "'gösteriyor', 'hatırlatıyor'.",
+      "ornek": "Rapor sorunun büyüklüğünü gözler önüne seriyor."
+    },
+    {
+      "id": "gecis_baglam",
+      "kategori": "gecis",
+      "agirlik": 2,
+      "desen": "\\bbu (bağlamda|çerçevede|doğrultuda|noktada|kapsamda|minvalde)\\b",
+      "aciklama": "Bürokratik geçiş. Mantıksal bağ kurmadan bağ kurmuş gibi yapar.",
+      "oneri": "Gerçek bağı yaz: 'bu yüzden', 'oysa', 'üstelik' ya da cümleleri birleştir.",
+      "ornek": "Bu bağlamda yeni bir strateji geliştirildi."
+    },
+    {
+      "id": "gecis_soz_konusu",
+      "kategori": "gecis",
+      "agirlik": 1,
+      "desen": "\\bsöz konusu\\b",
+      "aciklama": "Resmi gönderim sözü. Resmi metin dışında ağır.",
+      "oneri": "'bu' de ya da adı tekrarla.",
+      "ornek": "Söz konusu çalışmalar incelendiğinde fark görülüyor."
+    },
+    {
+      "id": "gecis_yani_sira",
+      "kategori": "gecis",
+      "agirlik": 2,
+      "desen": "\\b(bunun yanı sıra|bunların yanı sıra|bunun yanında|buna ek olarak|bunlara ek olarak|buna ilaveten|ek olarak)\\b",
+      "aciklama": "'Additionally/moreover' çevirisi. Paragraf başında sıralandığında liste kokusu verir.",
+      "oneri": "'Üstelik', 'bir de', 'ayrıca' (seyrek) ya da bağlacı tamamen at.",
+      "ornek": "Bunun yanı sıra iletişim de bir sorun."
+    },
+    {
+      "id": "gecis_ote_yandan",
+      "kategori": "gecis",
+      "agirlik": 1,
+      "desen": "\\b(öte yandan|diğer taraftan|diğer yandan|bununla birlikte|bununla beraber)\\b",
+      "aciklama": "'On the other hand / however' çevirisi.",
+      "oneri": "'Oysa', 'ama', 'yine de' ya da karşıtlığı cümlenin içine al.",
+      "ornek": "Öte yandan maliyetler de arttı."
+    },
+    {
+      "id": "gecis_siralama",
+      "kategori": "gecis",
+      "agirlik": 1,
+      "desen": "\\b(ilk olarak|ikinci olarak|üçüncü olarak|dördüncü olarak|son olarak|ilk ve en önemlisi)\\b",
+      "aciklama": "'Firstly/secondly/lastly' iskeleti.",
+      "oneri": "Sıralama zarflarını at, sıra zaten paragraflardan anlaşılır. Gerçek bir adım sırası varsa numaralı liste kullan.",
+      "ornek": "İlk olarak bütçeye bakalım.",
+      "serbest": 1
+    },
+    {
+      "id": "gecis_iliskin",
+      "kategori": "gecis",
+      "agirlik": 1,
+      "desen": "\\b(ilişkin|yönelik|dair) olarak\\b|\\bbelirtildiği üzere\\b|\\bifade edildiği gibi\\b",
+      "aciklama": "Yazışma bürokrasisi.",
+      "oneri": "'ile ilgili', 'hakkında' ya da cümleyi baştan kur.",
+      "ornek": "Toplantıda ele alınan konulara ilişkin olarak yazıyorum."
+    },
+    {
+      "id": "retorik_sadece_degil",
+      "kategori": "retorik",
+      "agirlik": 3,
+      "desen": "\\b(sadece|yalnızca|salt|sırf|yalnız)\\b[^.!?\\n]{1,80}?\\bdeğil\\w*\\b[,;]?\\s*(aynı zamanda|ayrıca)",
+      "aciklama": "'Not just X, but also Y' kalıbı. Türkçe yapay zekâ metninin en tanınan retorik imzası.",
+      "oneri": "'Hem X hem Y', iki ayrı cümle ya da yalnızca Y.",
+      "ornek": "Bu sadece bir uygulama değil, aynı zamanda bir yaşam tarzı."
+    },
+    {
+      "id": "retorik_degil_ayni_zamanda",
+      "kategori": "retorik",
+      "agirlik": 3,
+      "desen": "\\bdeğil\\w*[,;]?\\s+aynı zamanda\\b",
+      "aciklama": "'Not just... but also' kalıbının kısa biçimi.",
+      "oneri": "'Hem... hem de' ya da iki cümle.",
+      "ornek": "Teknik bir sorun değil, aynı zamanda kültürel bir mesele."
+    },
+    {
+      "id": "retorik_x_degil_y",
+      "kategori": "retorik",
+      "agirlik": 2,
+      "desen": "\\b(bu|o),?\\s+(sadece\\s+|yalnızca\\s+|basit\\s+)?bir\\s+\\w+(\\s+\\w+)?\\s+değil(dir)?(,|\\.\\s+(bir|o bir)\\b)",
+      "aciklama": "'This isn't X, it's Y' dramatik karşıtlığı.",
+      "oneri": "Yalnızca Y'yi söyle. X'i reddetmek gereksiz.",
+      "ornek": "Bu bir tercih değil, zorunluluk."
+    },
+    {
+      "id": "retorik_sudur",
+      "kategori": "retorik",
+      "agirlik": 2,
+      "desen": "\\b(şudur|şöyledir|şu şekildedir)\\s*:|\\b(gerçek|asıl|kesin olan|önemli olan|mesele|sorun|soru|cevap|yanıt|sır|anahtar|fark)\\s+(şu|şudur)\\s*:",
+      "aciklama": "'The thing is:' açıklama kalıbı.",
+      "oneri": "İki noktayı ve duyuruyu at, iddiayı doğrudan söyle: 'Kimse sorumluluk almıyor.'",
+      "ornek": "Asıl mesele şudur: kimse sorumluluk almıyor."
+    },
+    {
+      "id": "retorik_gercek_su_ki",
+      "kategori": "retorik",
+      "agirlik": 1,
+      "desen": "\\b(gerçek şu ki|işin aslı şu ki|mesele şu ki|sorun şu ki)\\b",
+      "aciklama": "'The truth is' duyurusu.",
+      "oneri": "Duyuruyu sil.",
+      "ornek": "Gerçek şu ki kimse hazır değildi."
+    },
+    {
+      "id": "retorik_soru_cevap",
+      "kategori": "retorik",
+      "agirlik": 1,
+      "desen": "(?:^|(?<=[.!?]\\s))(?:[^\\s.!?]+\\s){0,2}[^\\s.!?]+\\s+m[ıiuü]\\?(?!\\s+(diye|dedi|sordu|dedim|diyor))(?=\\s+\\S)",
+      "aciklama": "'The result? Chaos.' tipi soru-cevap. Bir kez doğal, sık kullanılırsa reklam metni kokar.",
+      "oneri": "Metin başına en fazla bir tane; gerisini düz cümleye çevir.",
+      "ornek": "Sonuç mu? Tam bir kaos.",
+      "serbest": 1
+    },
+    {
+      "id": "retorik_peki_ya",
+      "kategori": "retorik",
+      "agirlik": 1,
+      "desen": "\\bpeki,?\\s+(ya|ama|neden|nasıl|bu|bunun|bunu|ne)\\b[^?\\n]{0,80}\\?",
+      "aciklama": "Ara başlık niyetine soru.",
+      "oneri": "Soruyu kaldır, cevabı söyle.",
+      "ornek": "Peki ya bu yöntem işe yaramazsa?"
+    },
+    {
+      "id": "retorik_ne_anlama",
+      "kategori": "retorik",
+      "agirlik": 1,
+      "desen": "\\bne anlama gel(iyor|mektedir|ir|ecek)\\w*\\s*\\?",
+      "aciklama": "Kendi sorduğu soruyu cevaplayan geçiş: 'Bu ne anlama geliyor?'",
+      "oneri": "Soruyu at, sonucu doğrudan söyle.",
+      "ornek": "Peki, bu ne anlama geliyor?",
+      "serbest": 1
+    },
+    {
+      "id": "retorik_fazlasi",
+      "kategori": "retorik",
+      "agirlik": 2,
+      "desen": "(?<![^\\W\\d_])[^\\W\\d_]+['’]?[dt][ae]n\\s+(çok\\s+)?daha\\s+fazlası\\w*",
+      "aciklama": "'More than just X' kalıbı.",
+      "oneri": "Fazlası neyse onu söyle.",
+      "ornek": "Kahve bir içecekten çok daha fazlası."
+    },
+    {
+      "id": "retorik_onemli_olan",
+      "kategori": "retorik",
+      "agirlik": 1,
+      "desen": "\\b(önemli|asıl önemli|esas|kritik) olan,",
+      "aciklama": "Virgüllü duyuru: 'Önemli olan, ...'",
+      "oneri": "Virgülü ve duyuruyu at, önemli olanı doğrudan söyle.",
+      "ornek": "Önemli olan, doğru adımları atmaktır.",
+      "serbest": 1
+    },
+    {
+      "id": "burokratik_gerceklestir",
+      "kategori": "burokratik",
+      "agirlik": 1,
+      "desen": "\\b(analiz|değerlendirme|toplantı|görüşme|ziyaret|çalışma|araştırma|inceleme|etkinlik|eğitim|işlem|güncelleme|kontrol|test|ölçüm|üretim|teslimat|kurulum|sunum|tören|program|organizasyon|zirve|konferans|seminer|buluşma)\\w*\\s+(başarıyla\\s+)?gerçekleş\\w*|başarıyla gerçekleştiril\\w*",
+      "aciklama": "Ad + 'gerçekleştirmek' destek fiili.",
+      "oneri": "Tek fiil: 'inceledi', 'toplandı', 'ölçtü'.",
+      "ornek": "Ekip kapsamlı bir analiz gerçekleştirdi."
+    },
+    {
+      "id": "burokratik_sun",
+      "kategori": "burokratik",
+      "agirlik": 1,
+      "desen": "\\b(imk[aâ]n|olanak|fırsat|avantaj|çözüm|deneyim|esneklik|kolaylık|fayda|seçenek)\\w*\\s+sun(ar|uyor|maktadır|makta|abilir|an|ulan|du|mak)\\w*",
+      "aciklama": "'Offers opportunities' çevirisi.",
+      "oneri": "Ne yapılabildiğini söyle: 'Evden çalışabiliyorsunuz.'",
+      "ornek": "Platform kullanıcılara birçok avantaj sunar."
+    },
+    {
+      "id": "burokratik_sagla",
+      "kategori": "burokratik",
+      "agirlik": 1,
+      "desen": "\\b(katkı|fayda|avantaj|kolaylık|destek|imk[aâ]n|olanak|verimlilik|tasarruf)\\w*\\s+sağl[aı]\\w*",
+      "aciklama": "Ad + 'sağlamak' destek fiili.",
+      "oneri": "Faydayı fiille söyle: 'işi hızlandırıyor', 'para kazandırıyor'.",
+      "ornek": "Bu yöntem önemli avantajlar sağlar."
+    },
+    {
+      "id": "burokratik_olanak_tani",
+      "kategori": "burokratik",
+      "agirlik": 1,
+      "desen": "olanak tanı\\w*",
+      "aciklama": "'Allows/enables' çevirisi.",
+      "oneri": "'-ebilmek' ya da 'sayesinde'.",
+      "ornek": "Yeni sistem hızlı ödemeye olanak tanıyor."
+    },
+    {
+      "id": "burokratik_mevcut",
+      "kategori": "burokratik",
+      "agirlik": 1,
+      "desen": "\\b(mevcuttur|bulunmaktadır|yer almaktadır|söz konusudur|gerekmektedir|bulunmamaktadır)\\b",
+      "aciklama": "Resmi yazışma yüklemleri.",
+      "oneri": "'var', 'yok', 'gerekiyor', 'duruyor'.",
+      "ornek": "Ekte bütçe tablosu bulunmaktadır."
+    },
+    {
+      "id": "burokratik_olarak_deger",
+      "kategori": "burokratik",
+      "agirlik": 1,
+      "desen": "olarak (değerlendiril|nitelendiril|tanımlan|ifade edil|addedil)\\w*",
+      "aciklama": "Edilgen nitelendirme.",
+      "oneri": "Kimin nitelendirdiğini söyle ya da 'X sayılıyor' de.",
+      "ornek": "Bu karar bir dönüm noktası olarak değerlendirilmektedir."
+    },
+    {
+      "id": "burokratik_haline_gel",
+      "kategori": "burokratik",
+      "agirlik": 1,
+      "desen": "(?<!buz )(?<!toz )(?<!kül )(?<!gaz )(?<!su )(?<!sıvı )(?<!katı )(?<!buhar )(?:haline|hâline)\\s+gel\\w*",
+      "aciklama": "'Has become' kalıbı. Sık tekrarlanırsa yorar.",
+      "oneri": "'oldu', '-leşti' ('yaygınlaştı').",
+      "ornek": "Uzaktan çalışma yaygın bir uygulama haline geldi."
+    },
+    {
+      "id": "burokratik_dikkat_cekmekte",
+      "kategori": "burokratik",
+      "agirlik": 1,
+      "desen": "\\bdikkat çek(mektedir|ilmektedir|mekteyiz|ilmesi gerek\\w*)",
+      "aciklama": "'-mektedir'li duyuru yüklemi.",
+      "oneri": "Neyin dikkat çektiğini söyle: 'X artıyor', 'X göze çarpıyor'.",
+      "ornek": "Bu noktada veri güvenliği dikkat çekmektedir."
+    }
+  ]
+}

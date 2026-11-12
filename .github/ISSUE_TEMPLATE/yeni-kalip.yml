@@ -1,0 +1,35 @@
+name: Yeni kalıp önerisi / New pattern
+description: Türkçe yapay zekâ metinlerinde fark ettiğiniz, henüz yakalanmayan bir kalıp.
+title: "[Kalıp] "
+labels: ["kalıp"]
+body:
+  - type: input
+    id: kalip
+    attributes:
+      label: Kalıp
+      description: Kalıbın kendisi, mümkünse çekimli biçimleriyle.
+      placeholder: "ör. önemli bir yere sahiptir"
+    validations:
+      required: true
+  - type: textarea
+    id: ornekler
+    attributes:
+      label: Yapay zekâ metninden örnekler
+      description: Kalıbın geçtiği en az bir gerçek cümle. Kişisel bilgi içermesin.
+    validations:
+      required: true
+  - type: textarea
+    id: dogal
+    attributes:
+      label: Doğal karşılığı
+      description: Aynı anlamı iyi bir Türk yazar nasıl söylerdi?
+  - type: textarea
+    id: yanlis-alarm
+    attributes:
+      label: Yakalanmaması gereken kullanımlar
+      description: Kalıbın insan yazısında da doğal olduğu durumlar (ör. mecaz değil gerçek anlam).
+  - type: dropdown
+    id: kategori
+    attributes:
+      label: Kategori
+      options: [ceviri, sablon, asistan, abarti, dolgu, gecis, retorik, burokratik, emin değilim]
