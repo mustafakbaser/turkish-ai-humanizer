@@ -1,7 +1,7 @@
 {
   "name": "turkish-ai-humanizer",
   "description": "Yapay zekânın yazdığı Türkçe metinleri anlamı koruyarak doğal bir Türkçeyle yeniden yazar. Rewrites AI-generated Turkish into natural prose, with a built-in analyzer.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Mustafa Kürşad BAŞER",
     "url": "https://github.com/mustafakbaser"

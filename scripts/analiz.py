@@ -34,7 +34,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
-SURUM = "1.0.0"
+SURUM = "1.0.1"
 GUVEN_KELIME = 100   # bu sınırın altında puan "düşük güvenli" sayılır
 GUVEN_CUMLE = 5
 UZUNLUK_TOLERANSI = 0.20  # SKILL.md'deki ±%20 kuralı

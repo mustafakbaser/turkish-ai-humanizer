@@ -2,6 +2,14 @@
 
 Biçim [Keep a Changelog](https://keepachangelog.com/tr-TR/1.1.0/), sürümleme [Semantic Versioning](https://semver.org/lang/tr/) esaslıdır.
 
+## [1.0.1] - 2026-11-12
+
+### Düzeltildi
+
+- README, katkı rehberi, güvenlik politikası ve eklenti açıklamalarındaki anlaşılmaz, çeviri kokan ya da mantıksız cümleler sade Türkçeyle yeniden yazıldı.
+- Analiz aracının bazı düzeltme önerileri daha somut hâle getirildi. Bir öneride kuralların yasakladığı noktalı virgül kaldırıldı.
+- Skill açıklamasındaki "sesi ayarlar" ifadesi "üslubu ayarlar" olarak düzeltildi.
+
 ## [1.0.0] - 2026-11-12
 
 İlk sürüm.

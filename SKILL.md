@@ -4,7 +4,7 @@ description: Türkçe metinleri yapay zekâ kokusundan arındırır. Anlamı, sa
 license: MIT
 allowed-tools: Bash(python3 ${CLAUDE_SKILL_DIR}/scripts/analiz.py *)
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   author: "Mustafa Kürşad BAŞER"
   repository: "https://github.com/mustafakbaser/turkish-ai-humanizer"
 ---

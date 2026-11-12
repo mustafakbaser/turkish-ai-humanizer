@@ -1,5 +1,5 @@
 {
-  "surum": "1.0.0",
+  "surum": "1.0.1",
   "aciklama": "Türkçe yapay zekâ metinlerinde sık görülen kalıplar. Desenler Türkçe küçük harfe çevrilmiş (I→ı, İ→i) metin üzerinde, çok satırlı kipte çalışır. Her kalıbın 'ornek' alanı testlerde desenle eşleşmek zorundadır.",
   "kategoriler": {
     "asistan": "Sohbet botundan kalan cümleler: selamlama, yardım teklifi, 'bu yazıda ele alacağız' tipi duyurular.",
