@@ -1,11 +1,11 @@
 # Katkı Rehberi
 
-Katkılarınızı bekliyoruz. En değerli katkılar şunlar:
+En çok işe yarayan katkılar şunlar:
 
-- Türkçe yapay zekâ metinlerinde fark ettiğiniz yeni bir kalıp
-- Doğal bir cümlede yanlış alarm veren bir desen
-- Yeni bir üslupta önce/sonra örneği
-- Eşik kalibrasyonu için lisansı açık insan metinleri
+- Türkçe yapay zekâ metinlerinde fark ettiğiniz, henüz tanınmayan bir kalıp
+- Doğal bir cümleyi yanlışlıkla işaretleyen bir desen
+- Yeni bir metin türü için önce/sonra örneği
+- Eşikleri ayarlamak için açık lisanslı, insan yazımı Türkçe metinler
 
 ## Yeni kalıp eklemek
 
@@ -18,7 +18,7 @@ Kalıplar `scripts/kaliplar.json` dosyasındadır. Her kalıp şu alanları taş
   "agirlik": 2,
   "desen": "değer kat\\w*",
   "aciklama": "'Add value' çevirisi.",
-  "oneri": "Ne kazandırdığını söyle: 'işe hız katar', 'müşteri getirir'.",
+  "oneri": "Ne kazandırdığını fiille söyle: 'işi hızlandırıyor', 'işe yarıyor', 'kolaylaştırıyor'.",
   "ornek": "Ekibimize değer katacak adaylar arıyoruz."
 }
 ```

@@ -22,9 +22,9 @@
 
 ---
 
-Yapay zekâya Türkçe bir metin yazdırdıysanız o tadı tanırsınız. Her şey "önemli bir rol oynuyor", yazılar hep "Sonuç olarak" diye başlayan bir paragrafla bitiyor, cümleler aynı boyda ve aynı sırayla akıp gidiyor. Metin yanlış değil. Ama kimse böyle yazmıyor.
+Yapay zekâya Türkçe metin yazdıran herkes o üslubu tanır. Her şey "önemli bir rol oynar", yazı "Sonuç olarak" diye başlayan bir paragrafla biter, cümleler birbirine benzer uzunlukta art arda sıralanır. Metinde dilbilgisi hatası yoktur ama okuyan herkes onu bir insanın yazmadığını anlar.
 
-Turkish AI Humanizer, bu metinleri iyi bir Türk yazarın elinden çıkmış gibi yeniden yazan bir Claude skill'i. Sözcükleri eş anlamlılarıyla değiştirip geçmez. Önce metnin ne dediğini çıkarır, sonra aynı şeyi Türkçenin kendi kuruluşuyla ve metnin türüne uygun bir sesle yeniden söyler. Söylenen şey ise değişmez: sayılar, adlar ve iddiaların gücü olduğu gibi kalır.
+Turkish AI Humanizer, bu tür metinleri işini bilen bir Türk yazarın yazacağı gibi yeniden yazan bir Claude skill'i. Sözcükleri eş anlamlılarıyla değiştirmekle yetinmez. Önce metnin ne söylediğini çıkarır, sonra aynı içeriği Türkçenin doğal cümle yapısıyla ve metnin türüne uygun bir dille yeniden kurar. İçerik ise değişmez. Sayılar, adlar ve iddialar kaynakta nasılsa öyle kalır, "olabilir" diyen bir cümle "kesindir" diye çıkmaz.
 
 ## Önce ve sonra
 
@@ -36,24 +36,24 @@ Turkish AI Humanizer, bu metinleri iyi bir Türk yazarın elinden çıkmış gib
 
 > Uzaktan çalışma artık gündelik hayatın parçası. Teknoloji geliştikçe birçok şirket çalışanlarına esnek çalışma imkânı tanıyor. Ama bu düzenin avantajlarının yanında bazı zorlukları da var.
 
-<sub>Bu, skill'in kurallarına göre hazırlanmış ve testlerde kullanılan başvuru yeniden yazımıdır. Metnin tamamında imza puanı 73'ten 8'e, kalıp sayısı 14'ten 0'a iniyor, uzunluk ±%20 içinde kalıyor ve kaynaktaki hiçbir sayı, ad ya da nicelik kaybolmuyor. Yedi örneğin tamamı ve neyin neden değiştiği: <a href="references/ornekler.md">references/ornekler.md</a></sub>
+<sub>Bu örnek skill'in kurallarına göre elle hazırlandı ve testlerde ölçüt olarak kullanılıyor. Metnin tamamında imza puanı 73'ten 8'e, kalıp sayısı 14'ten 0'a düşüyor. Metin kaynağa göre %20'den fazla kısalmıyor, sayılar ve "birçok", "bazı" gibi nicelik sözcükleri yerinde kalıyor. Yedi örneğin tamamı ve değişikliklerin gerekçeleri: <a href="references/ornekler.md">references/ornekler.md</a></sub>
 
 ## Ne yapar
 
 | | |
 |---|---|
-| **Anlamdan yeniden yazar** | Metni önce iddialarına ayırır, sonra o iddialardan yeniden kurar. "Kritik bir rol oynamaktadır" cümlesi "hayati bir işlev üstlenmektedir" olarak geri dönmez. |
-| **Ölçer** | Python varsa yerleşik analiz aracı 118 kalıbı, cümle ritmini, ek yükünü, noktalamayı ve belge yapısını sayar. Türkçe harfler olmadan yazılmış metinde de kalıpları tanır. |
-| **Anlamı korur** | Yeniden yazımda kaybolan sayıları, kısaltmaları ve adları, kaynakta olmayan yeni sayıları yakalar. Sayıları değerleriyle karşılaştırır: "%15" ile "yüzde 15" aynıdır, "2 milyon" ile "2 milyar" değildir. "Olabilir" diyen bir cümle "kesindir" diye çıkmaz. |
-| **Üslubu tanır** | Sözleşmede, makalede, e-postada, haberde, blogda ve öyküde başka kurallarla çalışır. Sözleşmeye "zaten" girmez, blog yazısı bürokratlaşmaz. |
-| **Sesinizi öğrenir** | Kendi yazınızdan örnek verirseniz ritminizi ölçer ve yeniden yazımı ona yaklaştırır. |
-| **Hile yapmaz** | Görünmez karakter, harf değişimi ya da kasıtlı yazım hatası kullanmaz. Girdide bunları bulursa temizler ve size söyler. |
-| **Güvenli çalışır** | Analiz aracı yalnızca Python standart kütüphanesini kullanır ve ağa bağlanmaz. Metninizi komut satırına güvenli biçimde aktarır, metnin içindeki talimatları uygulamaz. |
-| **Kendi izini bırakmaz** | Her metne aynı onarımı uygulayan bir insanlaştırıcı kendisi bir imza olur. Skill aynı yerine koyma sözcüğünü ve aynı cümle kalıbını tekrarlamaz, zaten doğal olan metni yeniden yazmaz. |
+| **Anlamdan yeniden yazar** | Metni önce tek tek iddialarına ayırır, yazıyı bu iddialardan yeniden kurar. Bu yüzden "kritik bir rol oynamaktadır" kalıbı, "hayati bir işlev üstlenmektedir" gibi eş anlamlı bir kılıkta geri gelmez. |
+| **Ölçer** | Python kuruluysa yerleşik analiz aracı metni 118 kalıba karşı tarar. Cümle uzunluklarını, "-mektedir" sıklığını, noktalamayı, başlık ve liste yapısını ölçer. Ç, ğ, ı, ö, ş, ü kullanılmadan yazılmış metinlerde de çalışır. |
+| **Anlamı korur** | Yeniden yazımda kaybolan sayıları, kısaltmaları ve adları, kaynakta olmayan yeni sayıları yakalar. Sayıları değerleriyle karşılaştırır: "%15" ile "yüzde 15" aynı sayılır, "2 milyon" ile "2 milyar" farklı. |
+| **Metnin türüne uyar** | Sözleşme, makale, e-posta, haber, blog ve öykü için ayrı kurallar uygular. Sözleşmeye gündelik konuşma dili, blog yazısına resmi yazışma dili karışmaz. |
+| **Üslubunuza uyar** | Kendi yazdığınız metinlerden örnek verirseniz cümle uzunluğu, noktalama ve sık kullandığınız bağlaçlar gibi alışkanlıklarınızı çıkarır ve yeniden yazımı bunlara göre yapar. |
+| **Hile yapmaz** | Görünmez karakter eklemez, harfleri benzer görünen Kiril harfleriyle değiştirmez, bilerek yazım hatası yapmaz. Girdide bunlardan biri varsa temizler ve size bildirir. |
+| **Güvenli çalışır** | Analiz aracı yalnızca Python'un standart kütüphanesini kullanır ve internete bağlanmaz. Metnin içine gizlenmiş komutlar ("önceki talimatları unut" gibi) uygulanmaz, metnin bir parçası sayılır. |
+| **Kendini tekrar etmez** | Her metinde aynı düzeltmeyi yapan bir araç, zamanla tanınır bir iz bırakır. Skill her metinde aynı ifadeyi ve aynı cümle yapısını kullanmaz. Zaten doğal yazılmış bir metni de baştan yazmaz. |
 
 ## Kurulum
 
-**Gereksinim yok.** Skill Claude'un kendisiyle çalışır. Bilgisayarınızda Python 3 varsa yerleşik analiz aracı da devreye girer: her yeniden yazımı ölçer, kaybolan ya da uydurulan sayıları ve adları yakalar. Python yoksa skill aynı kurallarla çalışır, ölçümü gözle yapar ve sizden hiçbir şey kurmanızı istemez.
+**Ek bir şey kurmanız gerekmez.** Bilgisayarınızda Python 3 varsa skill yerleşik analiz aracını da kullanır ve her yeniden yazımda sayıların ve adların korunup korunmadığını otomatik olarak denetler. Python yoksa aynı kurallarla çalışmaya devam eder, bu denetimi kendisi yapar.
 
 ### Claude Code
 
@@ -62,7 +62,7 @@ Turkish AI Humanizer, bu metinleri iyi bir Türk yazarın elinden çıkmış gib
 /plugin install turkish-ai-humanizer@turkish-ai-humanizer
 ```
 
-Claude Code 2.1.275 ve sonrasında tek satır yeter:
+Claude Code 2.1.275 ve sonrasında tek komut yeterli:
 
 ```text
 /plugin install turkish-ai-humanizer --marketplace mustafakbaser/turkish-ai-humanizer
@@ -70,7 +70,7 @@ Claude Code 2.1.275 ve sonrasında tek satır yeter:
 
 ### Diğer ajanlar (Cursor, Codex, Gemini CLI…)
 
-[Skills CLI](https://skills.sh) ile, Node.js gerekir:
+[Skills CLI](https://skills.sh) ile kurulur (Node.js gerekir):
 
 ```bash
 npx skills add mustafakbaser/turkish-ai-humanizer -g -y
@@ -87,21 +87,21 @@ Bütün projelerde kullanmak için:
 git clone https://github.com/mustafakbaser/turkish-ai-humanizer.git ~/.claude/skills/turkish-ai-humanizer
 ```
 
-Yalnızca bir projede kullanmak için aynı komutu projenin `.claude/skills/turkish-ai-humanizer` klasörüne çalıştırın. Klasör adı skill adıyla aynı kalmalı.
+Yalnızca tek bir projede kullanmak için hedef klasör olarak projenin içindeki `.claude/skills/turkish-ai-humanizer` yolunu verin. Klasörün adı skill'in adıyla aynı olmalıdır.
 
 </details>
 
 ### Claude.ai ve Claude Desktop
 
 1. [Releases](https://github.com/mustafakbaser/turkish-ai-humanizer/releases/latest) sayfasından `turkish-ai-humanizer.zip` dosyasını indirin.
-2. **Customize → Skills** bölümünden yükleyin ve açın.
-3. Ayarlarda kod çalıştırma (code execution) özelliğinin açık olduğundan emin olun. Claude.ai'de skill'ler kod çalıştırma ortamı olmadan çalışmaz. Team ve Enterprise planlarında bu ayarı yöneticiniz açar.
+2. **Customize → Skills** bölümünden yükleyip etkinleştirin.
+3. Ayarlarda kod çalıştırma (code execution) özelliğinin açık olduğundan emin olun. Claude.ai'de skill'ler bu özellik kapalıyken çalışmaz. Team ve Enterprise planlarında bu ayarı yönetici açar.
 
-GitHub'ın "Download ZIP" düğmesiyle inen arşiv doğrudan yüklenemez, çünkü içindeki klasörün adı farklıdır. Releases'taki dosyayı kullanın ya da repoyu klonlayıp `python3 tools/paketle.py` ile kendiniz üretin.
+GitHub'ın "Download ZIP" düğmesiyle inen arşiv doğrudan yüklenemez, çünkü içindeki klasörün adı farklıdır. Releases'taki dosyayı kullanın ya da repoyu klonlayıp `python3 tools/paketle.py` komutuyla zip'i kendiniz oluşturun.
 
 ## Kullanım
 
-Metni yapıştırın ve ne istediğinizi kendi cümlelerinizle söyleyin:
+Metni yapıştırıp ne istediğinizi normal bir dille yazmanız yeterli:
 
 > Bu metni humanize et.
 
@@ -115,11 +115,11 @@ Metni yapıştırın ve ne istediğinizi kendi cümlelerinizle söyleyin:
 
 > Uzaktan çalışma üzerine kısa bir blog yazısı yaz, AI yazmış gibi durmasın.
 
-SEO için yazılmış bir blogda anahtar kelimelerinizi ve başlık yapınızı söylerseniz bunlara dokunmaz.
+SEO için yazılmış bir blog yazısında anahtar kelimelerinizi belirtirseniz skill bunları ve başlık yapısını olduğu gibi bırakır.
 
-Skill metnin türünü kendisi anlar ve cevabın ilk satırında söyler. Yanılırsa düzeltmeniz yeterli. Ne kadar değiştireceğini ("hafif", "orta", "baştan yaz") ve nasıl teslim edeceğini ("sadece metni ver", "detaylı rapor istiyorum") yine doğal dille seçebilirsiniz.
+Skill metnin türünü (blog, e-posta, akademik metin…) kendisi belirler ve cevabın ilk satırında yazar. Yanlış belirlediyse söylemeniz yeterli. Metnin ne kadar değişeceğini ("az dokun", "baştan yaz") ve cevabın biçimini ("sadece metni ver", "detaylı rapor istiyorum") de aynı şekilde, kendi cümlelerinizle seçebilirsiniz.
 
-Varsayılan cevapta üç şey bulunur: yeniden yazılmış metin, neyin neden değiştiğini anlatan kısa bir liste ve gerektiğinde en fazla üç soru. Sorular metni gerçekten size ait kılacak şeyi ister: kendi deneyiminizden bir örnek, bir iddianın kaynağı ya da sizin görüşünüz. Hiçbir yeniden yazım, yalnızca sizin bildiğiniz bir ayrıntının yerini tutmaz.
+Varsayılan cevapta yeniden yazılmış metin, neyin neden değiştiğini anlatan kısa bir liste ve gerekirse en fazla üç soru olur. Bu sorular metne yalnızca sizin ekleyebileceğiniz bilgileri ister: kendi deneyiminizden bir örnek, bir iddianın kaynağı ya da sizin görüşünüz. Skill bu tür ayrıntıları uydurmaz, size sorar.
 
 ## Nasıl çalışır
 
@@ -128,29 +128,29 @@ flowchart LR
     A[Teşhis] --> B[Ölçüm]
     B --> C[Anlam iskeleti]
     C --> D[Yeniden kurma]
-    D --> E[İnsan sesi]
+    D --> E[Doğallaştırma]
     E --> F[Denetim]
     F --> G[Teslim]
     F -. kalıp kaldıysa ya da anlam kaydıysa .-> D
 ```
 
-Skill önce metnin üslubunu, yani türünü ve okurunu belirler, ardından analiz aracıyla metni ölçer. Sonra metni iddialarına ayırır ve her iddianın sayısını, kapsamını ("birçok", "bazı"), olasılığını ("-ebilir") ve zamanını not eder. Yazımı bu iskeletten yapar. Kaynağın sözcüklerine bağlı kalmadığı için çeviri kokusu da geri gelmez.
+Skill önce metnin türünü ve kime yazıldığını belirler, ardından analiz aracıyla metni ölçer. Sonra metni iddialarına ayırır ve her iddia için içindeki sayıları, kapsamını ("birçok", "bazı"), kesinlik derecesini ("-ebilir") ve zamanını not eder. Yeni metni kaynaktan değil, bu listeden yazar. Kaynağın sözcük seçimine bağlı kalmadığı için çeviri havası da yeni metne taşınmaz.
 
-Yeniden kurma sırası yukarıdan aşağıya iner: önce belgenin iskeleti, sonra paragraf, cümle, sözcük ve en son noktalama. İnsan sesi üsluba göre dozlanır. Bir haber metnine deyim yağdırmak da en az yapay zekâ kadar yapay durur. En sonda çıktı yeniden ölçülür. Kalıp kalmışsa, bir sayı kaybolmuşsa ya da kaynakta olmayan bir sayı belirmişse skill geri dönüp düzeltir.
+Düzeltmeler büyükten küçüğe gider: önce metnin genel yapısı, sonra paragraflar, cümleler, sözcükler ve en son noktalama. Konuşma diline yakın öğeler (deyimler, "zaten", "hatta" gibi sözcükler) metnin türüne göre ölçülü kullanılır, çünkü deyim dolu bir haber metni de en az yapay zekâ metni kadar yapay durur. Son adımda metin yeniden ölçülür. Bir kalıp kalmışsa, bir sayı kaybolmuşsa ya da kaynakta olmayan bir sayı eklenmişse skill geri dönüp düzeltir.
 
-Bütün kurallar [SKILL.md](SKILL.md) dosyasında. Ayrıntılar ihtiyaç anında okunan [references/](references/) klasöründe duruyor.
+Kuralların tamamı [SKILL.md](SKILL.md) dosyasında. Ayrıntılar [references/](references/) klasöründe duruyor ve yalnızca gerektiğinde okunuyor.
 
 ## Üsluplar
 
 | Üslup | Örnek metinler | Skill ne yapar |
 |---|---|---|
-| Resmi | Sözleşme, KVKK metni, dilekçe, yönetmelik | Yalnızca çeviri kalıplarını ve asistan izlerini temizler. Hukuki sözcüklere dokunmaz. |
-| Akademik | Tez, makale, rapor | Geçiş yığınını ve kalıpları atar, "-mektedir"i ölçülü tutar, bilimsel temkini korur. |
-| Profesyonel | E-posta, LinkedIn, ürün metni, bülten | Kısa ve net bir iş dili kurar. Pazarlama abartısını ve şablon kapanışları atar. |
-| Gazetecilik | Haber, analiz, brifing | Olguyu öne alır, atıfları ve sayıları olduğu gibi bırakır. |
-| Deneme | Blog, köşe yazısı, kişisel yazı | İnsan sesinin bütün araçlarını ölçülü kullanır: dalgalı ritim, söylem belirteçleri, yerinde bir soru. SEO yapısını korur. |
-| Edebi | Öykü, roman, anlatı | Klişe imgeyi atar, duyguyu bildirmek yerine gösterir, olay örgüsüne dokunmaz. |
-| Genel | Türü belirsiz kısa metinler | Profesyonel kurallarla ve ölçülü bir sesle çalışır. |
+| Resmi | Sözleşme, KVKK metni, dilekçe, yönetmelik | Yalnızca çeviri kalıplarını ve sohbet botundan kalan cümleleri temizler. Hukuki terimlere dokunmaz. |
+| Akademik | Tez, makale, rapor | Art arda dizilen "bu bağlamda", "öte yandan" gibi bağlaçları ve kalıpları ayıklar. "-mektedir" kullanımını azaltır ama tamamen kaldırmaz. "Olabilir" diyen bulguyu kesinleştirmez. |
+| Profesyonel | E-posta, LinkedIn, ürün metni, bülten | Kısa ve net bir iş diliyle yazar. Pazarlama abartısını ve "iletişime geçmekten çekinmeyin" gibi kalıp kapanışları çıkarır. |
+| Gazetecilik | Haber, analiz, brifing | Haberin özünü başa alır. Alıntılara, atıflara ve sayılara dokunmaz. |
+| Deneme | Blog, köşe yazısı, kişisel yazı | Cümle uzunluklarını çeşitlendirir. "Zaten", "hatta" gibi konuşma diline yakın sözcükleri ve yerinde bir soruyu ölçülü kullanır. SEO yapısını korur. |
+| Edebi | Öykü, roman, anlatı | Klişe benzetmeleri atar. "Hüzünlüydü" demek yerine hüznü bir davranışla gösterir. Olay örgüsüne dokunmaz. |
+| Genel | Türü belirsiz kısa metinler | Profesyonel üslubun kurallarıyla, ölçülü bir dille çalışır. |
 
 ## Analiz aracı
 
@@ -160,12 +160,12 @@ Bütün kurallar [SKILL.md](SKILL.md) dosyasında. Ayrıntılar ihtiyaç anında
 python3 scripts/analiz.py metin.md --uslup deneme           # rapor
 python3 scripts/analiz.py metin.md --uslup akademik         # üsluba göre eşikler
 python3 scripts/analiz.py once.md --karsilastir sonra.md    # önce/sonra ve anlam koruma
-python3 scripts/analiz.py --karsilastir - < ikisi-bir-arada.md # kaynak ve taslak tek akışta, ===TASLAK=== ile ayrılır
-python3 scripts/analiz.py --karsilastir - --ayrac @@ < x.md # metin ===TASLAK=== içeriyorsa başka ayraç
-python3 scripts/analiz.py kendi-yazilarim.md --profil       # ses kartı
-python3 scripts/analiz.py metin.md --json                   # makinenin okuyacağı çıktı
+python3 scripts/analiz.py --karsilastir - < ikisi-bir-arada.md # kaynak ve taslak tek dosyada, ===TASLAK=== satırıyla ayrılır
+python3 scripts/analiz.py --karsilastir - --ayrac @@ < x.md # metinde ===TASLAK=== geçiyorsa başka bir ayraç
+python3 scripts/analiz.py kendi-yazilarim.md --profil       # yazım alışkanlıklarınızın özeti
+python3 scripts/analiz.py metin.md --json                   # başka programların okuyabileceği JSON çıktı
 python3 scripts/analiz.py metin.md --esik 30                # puan 30'u geçerse çıkış kodu 1
-python3 scripts/analiz.py --kaliplar                        # kalıp sözlüğü
+python3 scripts/analiz.py --kaliplar                        # kalıp listesi
 ```
 
 <details>
@@ -193,11 +193,11 @@ Kalıp eşleşmeleri: 15 (ağırlıklı yoğunluk 22,03/100 kelime)
 
 </details>
 
-"Tek kullanım doğal" diye işaretlenen eşleşmeler puana girmez. Bu ifadeler bir kez geçtiğinde doğaldır, yalnızca tekrar ettiklerinde imza olur.
+İmza puanı, metinde yapay zekâya özgü kalıpların ne kadar yoğun olduğunu 0-100 arasında gösterir. "Tek kullanım doğal" diye işaretlenen eşleşmeler bu puana girmez. Bu ifadeler metinde bir kez geçtiğinde sorun değildir, tekrarlandıklarında yapay zekâ izi sayılır.
 
-Araç Türkçenin inceliklerini hesaba katar. I ile İ'yi doğru küçültür, "19. yüzyıl" ya da "II. Mahmut" gördüğünde cümleyi bölmez, "aralıyor" ve "gücü" gibi ses değişimine uğramış biçimleri de tanır. Kod bloklarını, bağlantıları ve bir söyleme fiiline bağlı alıntıları kalıp taramasına sokmaz, çünkü onlar başkasının sözüdür. Kötü niyetle hazırlanmış uzun girdilerde de hızlı kalır ve 400.000 karakterden uzun metni bölümlere ayırmanızı ister.
+Araç Türkçenin özelliklerini hesaba katar. I ile İ'yi doğru küçültür, "19. yüzyıl" ya da "II. Mahmut" gördüğünde cümleyi bölmez, "aralıyor" ve "gücü" gibi ses değişimine uğramış biçimleri de tanır. Kod bloklarını, bağlantıları ve "dedi", "söyledi" gibi bir fiille verilmiş alıntıları taramaz, çünkü alıntı başkasının sözüdür ve değiştirilmez. Çok uzun ya da aracı yavaşlatmak için hazırlanmış girdilerde de hızlı çalışır. 400.000 karakterden uzun metinleri bölümlere ayırmanızı ister.
 
-`--esik` seçeneğiyle aracı bir CI adımına da koyabilirsiniz. Böylece içerik üreten bir sistemde metinler yayımlanmadan önce kontrol edilir.
+`--esik` seçeneğiyle aracı bir CI adımına ekleyebilir, otomatik üretilen metinleri yayımlanmadan önce denetleyebilirsiniz.
 
 ## Sık sorulan sorular
 
@@ -206,18 +206,18 @@ Araç Türkçenin inceliklerini hesaba katar. I ile İ'yi doğru küçültür, "
 
 <br>
 
-Bunu hiçbir araç dürüstçe garanti edemez. Detektörler olasılığa dayanır, sık güncellenir, birbiriyle çelişir ve insanların yazdığı metinleri de yanlışlıkla işaretleyebilir. Türkçedeki başarıları hakkında yayımlanmış bağımsız veri de az.
+Bunu hiçbir araç dürüstçe garanti edemez. Detektörler olasılığa dayanır, sık güncellenir, birbiriyle çelişir ve insanların yazdığı metinleri de yanlışlıkla işaretleyebilir. Türkçe metinlerde ne kadar isabetli oldukları hakkında yayımlanmış bağımsız araştırma da az.
 
-Bu skill detektörü kandırmaya uğraşmaz. Detektörlerin baktığı şeyleri, yani öngörülebilir kalıpları, tekdüze ritmi ve şablon yapıyı, metni gerçekten daha iyi yazarak değiştirir. Hilelere göre çok daha dayanıklı bir yol bu ve metni de bozmuyor. Ayrıntı: [references/tespit-mekanizmalari.md](references/tespit-mekanizmalari.md).
+Skill detektörleri kandırmaya çalışmaz. Detektörlerin yakaladığı şeyleri, yani tahmin edilebilir kalıpları, hep aynı uzunluktaki cümleleri ve şablon yapıyı, metni gerçekten daha iyi yazarak ortadan kaldırır. Görünmez karakter ya da bilerek yapılan yazım hatası gibi hileler kısa sürede fark edilir ve metni bozar. Bu yol ise metni iyileştirir. Ayrıntılar: [references/tespit-mekanizmalari.md](references/tespit-mekanizmalari.md).
 
 </details>
 
 <details>
-<summary><b>Analiz aracındaki puan bir detektör skoru mu?</b></summary>
+<summary><b>Analiz aracının verdiği puan bir detektör skoru mu?</b></summary>
 
 <br>
 
-Hayır. Puan, skill'in tanıdığı imzaların metinde ne kadar yoğun olduğunu gösterir ve neyi düzelteceğinizi söyler. Ticari bir aracın vereceği sonucu tahmin etmez. 100 kelimenin altındaki metinlerde yalnızca yön gösterir.
+Hayır. Puan, skill'in bildiği yapay zekâ kalıplarının metinde ne kadar sık geçtiğini gösterir ve neyin düzeltilmesi gerektiğini söyler. Ticari bir detektörün vereceği sonucu tahmin etmez. 100 kelimeden kısa metinlerde puan yalnızca kabaca fikir verir.
 
 </details>
 
@@ -226,7 +226,7 @@ Hayır. Puan, skill'in tanıdığı imzaların metinde ne kadar yoğun olduğunu
 
 <br>
 
-Analiz aracı ağa bağlanmaz ve hiçbir yere veri göndermez. Claude Code'da bilgisayarınızda, claude.ai'de ise Claude'un kod çalıştırma ortamında çalışır. Metin yalnızca zaten kullandığınız Claude oturumunda işlenir.
+Analiz aracı internete bağlanmaz ve hiçbir yere veri göndermez. Claude Code'da sizin bilgisayarınızda, claude.ai'de ise Claude'un kod çalıştırma ortamında çalışır. Metniniz yalnızca kullandığınız Claude oturumunda işlenir.
 
 </details>
 
@@ -235,20 +235,20 @@ Analiz aracı ağa bağlanmaz ve hiçbir yere veri göndermez. Claude Code'da bi
 
 <br>
 
-Hayır. Python yalnızca analiz aracı için kullanılır ve isteğe bağlıdır. Claude Code'da bilgisayarınızda Python 3 varsa ölçüm yapılır. Yoksa skill aynı kurallarla çalışır, sayıları ve adları elle denetler ve ölçüm satırına "gözle değerlendirildi" yazar. Kaybettiğiniz tek şey ölçüm satırı ve sayıların otomatik kontrolüdür.
+Hayır. Python yalnızca analiz aracı için kullanılır ve isteğe bağlıdır. Claude Code kullanıyorsanız ve bilgisayarınızda Python 3 varsa metin ölçülür. Yoksa skill aynı kurallarla çalışır, sayıları ve adları kendisi tek tek kontrol eder ve ölçüm satırına "gözle değerlendirildi" yazar. Bu durumda yalnızca ölçüm sonuçlarını ve sayıların otomatik denetimini kaybedersiniz.
 
-Claude.ai ve Claude Desktop'ta kurmanız gereken bir şey yok. Skill'ler orada Claude'un kod çalıştırma ortamında çalışır ve o ortamda Python hazırdır. Yalnızca ayarlarda kod çalıştırma özelliğinin açık olması gerekir.
+Claude.ai ve Claude Desktop'ta kurmanız gereken bir şey yok. Skill'ler orada Claude'un kod çalıştırma ortamında çalışır ve bu ortamda Python zaten var. Yalnızca ayarlarda kod çalıştırma özelliğinin açık olması gerekir.
 
-Claude Code ilk kullanımda analiz komutu için izin isteyebilir. Skill etkinken yalnızca kendi analiz betiğine izin tanımlar, başka bir komuta izin vermez.
+Claude Code ilk kullanımda analiz komutu için izin isteyebilir. Skill çalışırken yalnızca kendi analiz aracının çalıştırılmasına izin verir, başka hiçbir komuta izin vermez.
 
 </details>
 
 <details>
-<summary><b>İngilizce ya da başka bir dilden çeviri yapabilir mi?</b></summary>
+<summary><b>İngilizceden ya da başka bir dilden çeviri yapabilir mi?</b></summary>
 
 <br>
 
-Evet. Metni önce birebir çevirip sonra düzeltmeye çalışmaz. Anlamı çıkarır ve doğrudan hedef üslupta Türkçe yazar. Çeviri kokusu en çok o ara adımdan girer.
+Evet. Metni önce kelimesi kelimesine çevirip sonra düzeltmeye çalışmaz, çünkü çeviri havası en çok bu ara adımda metne siner. Önce anlamı çıkarır, sonra doğrudan Türkçe yazar.
 
 </details>
 
@@ -257,24 +257,24 @@ Evet. Metni önce birebir çevirip sonra düzeltmeye çalışmaz. Anlamı çıka
 
 <br>
 
-Skill metni daha iyi yazmak için var. Yapay zekâ kullanımının beyan edilmesini isteyen okul, dergi ya da yarışmalarda o kurallara uymak sizin sorumluluğunuzda.
+Skill metni daha iyi yazmanıza yardım etmek için var. Okulunuz, yayın yapacağınız dergi ya da katıldığınız yarışma yapay zekâ kullanımını beyan etmenizi istiyorsa bu kurala uymak sizin sorumluluğunuzdadır.
 
 </details>
 
 ## Katkı
 
-En değerli katkı, gözünüze çarpan yeni bir kalıp ya da doğal bir cümlede verilen yanlış bir alarm. İkisi için de hazır [issue şablonları](https://github.com/mustafakbaser/turkish-ai-humanizer/issues/new/choose) var. Kod katkısından önce [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına göz atın. Her kalıbın, kendisini doğrulayan bir örnek cümle taşıması gerekiyor.
+En çok işe yarayan katkı iki türlü: skill'in henüz tanımadığı bir yapay zekâ kalıbı ya da doğal bir cümleyi yanlışlıkla işaretlediği bir durum. İkisi için de hazır [issue şablonları](https://github.com/mustafakbaser/turkish-ai-humanizer/issues/new/choose) var. Kod göndermeden önce [CONTRIBUTING.md](CONTRIBUTING.md) dosyasını okuyun. Eklenen her kalıbın, testlerde denetlenen bir örnek cümlesi olmalı.
 
 ```bash
 python3 -m unittest discover -s tests -v
 ```
 
-Değişiklik geçmişi için [CHANGELOG.md](CHANGELOG.md).
+Sürüm geçmişi: [CHANGELOG.md](CHANGELOG.md).
 
 ## Lisans
 
 [MIT](LICENSE) © 2026 [Mustafa Kürşad BAŞER](https://github.com/mustafakbaser)
 
 <div align="center">
-<sub>İşinize yaradıysa repoya bir yıldız verin. Türkçe yazan başkalarının da bulmasını kolaylaştırır.</sub>
+<sub>Skill işinize yaradıysa repoya yıldız verebilirsiniz. Böylece proje GitHub'da daha kolay bulunur.</sub>
 </div>

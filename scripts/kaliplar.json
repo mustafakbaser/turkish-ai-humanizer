@@ -2,7 +2,7 @@
   "surum": "1.0.0",
   "aciklama": "Türkçe yapay zekâ metinlerinde sık görülen kalıplar. Desenler Türkçe küçük harfe çevrilmiş (I→ı, İ→i) metin üzerinde, çok satırlı kipte çalışır. Her kalıbın 'ornek' alanı testlerde desenle eşleşmek zorundadır.",
   "kategoriler": {
-    "asistan": "Sohbet asistanından kalan izler: selamlama, yardım teklifi, 'bu yazıda ele alacağız' tipi duyurular.",
+    "asistan": "Sohbet botundan kalan cümleler: selamlama, yardım teklifi, 'bu yazıda ele alacağız' tipi duyurular.",
     "sablon": "Şablon giriş ve kapanışlar: 'günümüzde', 'hızla değişen dünyada', 'sonuç olarak'.",
     "ceviri": "İngilizceden birebir aktarılmış söyleyişler (calque): 'önemli bir rol oynamak', 'değer katmak', 'içgörü'.",
     "abarti": "İçi boş değerlendirme sıfatları: 'eşsiz', 'benzersiz', 'paha biçilmez'.",
@@ -26,7 +26,7 @@
       "kategori": "asistan",
       "agirlik": 3,
       "desen": "umarım\\b[^.!?\\n]{0,40}?\\b(yardımcı olur|faydalı olur|yararlı olur|işinize yarar|işine yarar|yardımcı olmuştur|faydalı olmuştur)",
-      "aciklama": "Asistan kapanışı.",
+      "aciklama": "Sohbet botu kapanışı.",
       "oneri": "Sil. Gerçek bir yazar okura 'umarım işinize yarar' diye veda etmez.",
       "ornek": "Umarım bu bilgiler işinize yarar."
     },
@@ -35,7 +35,7 @@
       "kategori": "asistan",
       "agirlik": 3,
       "desen": "başka (bir )?(sorunuz|sorun|sorunuzun|yardıma ihtiyacınız|bir şeye ihtiyacınız)\\w*",
-      "aciklama": "Asistan kapanışı.",
+      "aciklama": "Sohbet botu kapanışı.",
       "oneri": "Sil. Gerekirse bağlama özgü tek bir cümle yaz.",
       "ornek": "Başka bir sorunuz olursa yazabilirsiniz."
     },
@@ -80,7 +80,7 @@
       "kategori": "asistan",
       "agirlik": 2,
       "desen": "aşağıda\\w*\\b[^.!?\\n]{0,60}?(bulabilirsiniz|inceleyebilirsiniz|görebilirsiniz|yer almaktadır|sıraladım|derledim|listeledim)",
-      "aciklama": "Asistan yönlendirmesi.",
+      "aciklama": "Sohbet botunun okuru yönlendirmesi.",
       "oneri": "Sil ya da 'En sık sorulanlar şunlar:' gibi kısa bir girişe indir.",
       "ornek": "Aşağıda en sık sorulan soruları bulabilirsiniz."
     },
@@ -252,7 +252,7 @@
       "agirlik": 2,
       "desen": "(öğrenme|dönüşüm|keşif|kariyer|gelişim|başarı|kişisel gelişim|iyileşme|dijitalleşme|girişimcilik|liderlik|yazarlık)\\s+yolculuğ\\w*|uzun soluklu bir yolculuğ\\w*",
       "aciklama": "Mecazi 'journey' kullanımı.",
-      "oneri": "'süreç', 'yıllar', 'iş' gibi düz bir sözcük kullan ya da süreyi ver.",
+      "oneri": "'Süreç', 'yıllar', 'iş' gibi düz bir sözcük kullan ya da süreyi ver.",
       "ornek": "Kariyer yolculuğunuzda size eşlik edecek ipuçları."
     },
     {
@@ -270,7 +270,7 @@
       "agirlik": 2,
       "desen": "derinlemesine (bir )?(bakış|bak\\w*|inceleme|incel[ei]\\w*|dalış|analiz|ele al)\\w*|derin bir dalış",
       "aciklama": "'Deep dive' kalıbı.",
-      "oneri": "'ayrıntılı', 'yakından' ya da hiçbiri.",
+      "oneri": "'Ayrıntılı', 'yakından' ya da hiçbiri.",
       "ornek": "Bu yazıda konuya derinlemesine bakıyoruz."
     },
     {
@@ -352,7 +352,7 @@
       "agirlik": 2,
       "desen": "öneme sahip\\w*|(önemli|özel|ayrı|müstesna|kritik|büyük|merkezi|ayrıcalıklı)\\s+(bir\\s+)?(yere|konuma)\\s+sahip\\w*",
       "aciklama": "'Is of great importance / holds an important place' çevirisi.",
-      "oneri": "'önemli' de, ya da 'önemli bir yeri var'.",
+      "oneri": "'Önemli' de ya da 'önemli bir yeri var' gibi kur.",
       "ornek": "Veri güvenliği kritik bir öneme sahiptir."
     },
     {
@@ -506,7 +506,7 @@
       "agirlik": 2,
       "desen": "(temel|köşe) taşı\\w*",
       "aciklama": "'Cornerstone' çevirisi.",
-      "oneri": "'X olmadan Y olmaz' gibi düz bir kurgu.",
+      "oneri": "'X olmadan Y olmaz' gibi düz bir cümle kur.",
       "ornek": "Güven, her ilişkinin temel taşıdır."
     },
     {
@@ -515,7 +515,7 @@
       "agirlik": 2,
       "desen": "itici gü[çc]\\w*",
       "aciklama": "'Driving force' çevirisi.",
-      "oneri": "Nedensellik fiili kullan: 'büyümeyi X sürüklüyor'.",
+      "oneri": "Nedeni fiille söyle: 'Büyümeyi ihracat sürüklüyor.'",
       "ornek": "İnovasyon büyümenin itici gücüdür."
     },
     {
@@ -842,7 +842,7 @@
       "kategori": "dolgu",
       "agirlik": 1,
       "desen": "\\b(önemli|büyük|kayda değer|ciddi)\\s+ölçüde\\b",
-      "aciklama": "Ölçüsüz ölçü ('significantly').",
+      "aciklama": "Ölçü vermeyen derece sözü ('significantly').",
       "oneri": "Çoğu zaman silinebilir. Kaynakta sayı varsa onu ver. Akademik metinde istatistiksel anlam taşıyorsa ('anlamlı düzeyde') koru.",
       "ornek": "Maliyetler önemli ölçüde azaldı.",
       "serbest": 1
@@ -972,7 +972,7 @@
       "agirlik": 1,
       "desen": "(?:^|(?<=[.!?]\\s))(?:[^\\s.!?]+\\s){0,2}[^\\s.!?]+\\s+m[ıiuü]\\?(?!\\s+(diye|dedi|sordu|dedim|diyor))(?=\\s+\\S)",
       "aciklama": "'The result? Chaos.' tipi soru-cevap. Bir kez doğal, sık kullanılırsa reklam metni kokar.",
-      "oneri": "Metin başına en fazla bir tane; gerisini düz cümleye çevir.",
+      "oneri": "Metin başına en fazla bir tane kullan. Gerisini düz cümleye çevir.",
       "ornek": "Sonuç mu? Tam bir kaos.",
       "serbest": 1
     },

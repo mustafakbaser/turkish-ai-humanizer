@@ -22,7 +22,7 @@
 
 ---
 
-If you have ever asked an AI to write in Turkish, you know the result. Everything "plays a critical role", every piece closes with a paragraph that opens "In conclusion", and the sentences march by at the same length in the same order. Nothing in it is wrong. No Turkish writer would write it that way, though.
+If you have ever asked an AI to write in Turkish, you know the result. Everything "plays a critical role", every piece closes with a paragraph that opens "In conclusion", and the sentences march by at the same length in the same order. The grammar is fine, but anyone reading it can tell a person did not write it.
 
 Turkish AI Humanizer is a Claude skill that rewrites such text so it reads like the work of a skilled Turkish writer. It does not swap words for synonyms. It first works out what the text is saying, then says it again the way Turkish is actually written, in a voice that fits the kind of text it is. What the text says stays the same: numbers, names and the strength of every claim are preserved.
 
@@ -55,7 +55,7 @@ The skill's instructions are written in Turkish, because that is the language it
 | **Learns your voice** | Give it a few samples of your own writing and it measures your rhythm, then steers the rewrite towards it. |
 | **No tricks** | No invisible characters, no look-alike letters, no deliberate typos. If the input contains them, it strips them out and tells you. |
 | **Runs safely** | The analyzer uses only the Python standard library and makes no network calls. Your text reaches it safely through standard input, and instructions hidden inside the text are never followed. |
-| **Leaves no trace of its own** | A humanizer that applies the same fix to every text becomes a signature itself. The skill does not repeat the same replacement or sentence pattern, and it leaves text that already reads naturally alone. |
+| **Does not repeat itself** | A humanizer that applies the same fix to every text becomes a signature itself. The skill does not repeat the same replacement or sentence pattern, and it leaves text that already reads naturally alone. |
 
 ## Install
 
@@ -125,7 +125,7 @@ In an SEO blog post, tell it your target keywords and heading structure and it w
 
 The skill works out the register on its own and states it in the first line of its reply. If it gets it wrong, just correct it. You can also choose how much to change ("light", "medium", "rewrite from scratch") and how to deliver it ("just the text", "full report") in plain language.
 
-A default reply has three parts: the rewritten text, a short list of what changed and why, and, when it would genuinely help, up to three questions. Those questions ask for what makes a text yours: an example from your own experience, the source of a claim, or your own opinion. No rewrite can stand in for a detail only you know.
+A default reply has three parts: the rewritten text, a short list of what changed and why, and, when it would genuinely help, up to three questions. Those questions ask for things only you can add: an example from your own experience, the source of a claim, or your own opinion. The skill never makes these details up. It asks you instead.
 
 ## How it works
 
@@ -257,5 +257,5 @@ See [CHANGELOG.md](CHANGELOG.md) for the release history.
 [MIT](LICENSE) © 2026 [Mustafa Kürşad BAŞER](https://github.com/mustafakbaser)
 
 <div align="center">
-<sub>If it helped, star the repo. It helps other people who write in Turkish find it.</sub>
+<sub>If the skill helped you, consider starring the repo. Stars make the project easier to find on GitHub.</sub>
 </div>

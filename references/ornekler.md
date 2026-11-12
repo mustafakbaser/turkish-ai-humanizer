@@ -1,6 +1,6 @@
 # Örnekler
 
-Her örnek, tipik bir yapay zekâ çıktısının önce ve sonra hâlidir. "Sonra" metinleri skill'in kurallarına göre elle hazırlanmış başvuru yeniden yazımlarıdır ve `tests/fixtures/` klasöründeki test metinleriyle birebir aynıdır. Ölçüm satırları `analiz.py --karsilastir` ile hesaplanır. Bu dosya `tools/ornekleri_uret.py` ile üretilir, elle düzenlenmez.
+Her örnek, tipik bir yapay zekâ çıktısının önce ve sonra hâlidir. "Sonra" metinleri skill'in kurallarına göre elle hazırlandı ve `tests/fixtures/` klasöründeki test metinleriyle birebir aynı. Ölçüm satırları `analiz.py --karsilastir` ile hesaplanır. Bu dosya `tools/ornekleri_uret.py` ile üretilir, elle düzenlenmez.
 
 Örneklerde dikkat edilecek ilke: kaynaktaki her iddia, nicelik ("birçok", "bazı"), olasılık ifadesi ("-ebilir", "gibi görünüyor") ve zaman kipi korunur. Yeniden yazım üslubu değiştirir, iddiayı değiştirmez.
 
